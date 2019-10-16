@@ -18,6 +18,5 @@ repositories {
 
 dependencies {
     implementation 'javax:javaee-api:8.0'
-
     testImplementation 'junit:junit:4.12'
 }

@@ -3,7 +3,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>JSF 2.5 Hello World</title>
@@ -12,17 +13,17 @@
 <h:body>
     <div id="page">
         <h:form>
-            Username<br/> <h:inputText id="username" value="#{loginControler.username}"
-                         size="20" required="true"
-                         label="UserName" >
-                <f:validateLength minimum="3" maximum="50" />
-            </h:inputText><br/>
-            Password<br/> <h:inputSecret id="password" value="#{loginControler.password}"
-                         size="20" required="true"
-                         label="Password">
-                <f:validateLength minimum="3" maximum="50" />
-            </h:inputSecret><br/>
-            <h:commandButton value="Login" action="#{loginControler.login}"/>
+            Username<br/>   <h:inputText id="username" value="#{loginControler.username}"
+                                size="20" required="true"
+                                label="UserName" >
+                                <f:validateLength minimum="3" maximum="50" />
+                            </h:inputText><br/>
+            Password<br/>   <h:inputSecret id="password" value="#{loginControler.password}"
+                                size="20" required="true"
+                                label="Password">
+                                <f:validateLength minimum="3" maximum="50" />
+                            </h:inputSecret><br/>
+                    <h:commandButton value="Login" action="#{loginControler.login}"/>
         </h:form><br/>
     </div>
 </h:body>

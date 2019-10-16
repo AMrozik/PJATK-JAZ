@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class LoginControler {
+public class LoginControler{
 
         private String password;
         private String username;

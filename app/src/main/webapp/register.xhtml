@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>JSF 2.5 Hello World</title>
+    <h:outputStylesheet name="main.css" library="css"/>
+</h:head>
+<h:body>
+    <div id="page">
+        <h:form>
+                Your Name:<br/>         <h:inputText id="name" value="#{registerRequest.name}"
+                                            size="20" required="true"
+                                            label="name" >
+                                            <f:validateLength minimum="3" maximum="50" />
+                                        </h:inputText><br/>
+                Your Lastname:<br/>     <h:inputText id="lastname" value="#{registerRequest.lastname}"
+                                             size="20" required="true"
+                                             label="lastname" >
+                                            <f:validateLength minimum="3" maximum="50" />
+                                        </h:inputText><br/>
+                Your Birth Date:<br/>   <h:inputText id="BirthDate" value="#{registerRequest.birth}"
+                                              size="20" required="true"
+                                              label="BirthDate" >
+                                            <f:validateLength minimum="3" maximum="50" />
+                                        </h:inputText><br/>
+                Username:<br/>          <h:inputText id="username" value="#{registerRequest.username}"
+                                               size="20" required="true"
+                                               label="UserName" >
+                                            <f:validateLength minimum="3" maximum="50" />
+                                        </h:inputText><br/>
+                Email:<br/>             <h:inputText id="email" value="#{registerRequest.email}"
+                                               size="20" required="true"
+                                               label="Email" type="email" >
+                                            <f:validateLength minimum="3" maximum="50" />
+                                        </h:inputText><br/>
+                Password:<br/>          <h:inputSecret id="password" value="#{registerRequest.password}"
+                                               size="20" required="true"
+                                               label="Password" type="password">
+                                            <f:validateLength minimum="5" maximum="30" />
+                                        </h:inputSecret><br/>
+                            <h:commandButton value="Login" action="#{registerRequest.register}"/>
+        </h:form><br/>
+    </div>
+</h:body>
+</html>
