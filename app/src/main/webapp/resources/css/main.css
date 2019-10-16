@@ -1,9 +1,9 @@
 body{
     background-color: gray;
+    text-align: center;
+    margin-top: 20%;
 }
 
 form{
-    text-align: center;
-    margin-top: 20%;
-    navbutton_background_color: azure;
+
 }

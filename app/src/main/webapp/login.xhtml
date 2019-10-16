@@ -12,10 +12,18 @@
 <h:body>
     <div id="page">
         <h:form>
-            <h:inputText value="#{loginControler.username}"/><br/>
-            <h:inputSecret value="#{loginControler.password}"/><br/>
+            Username<br/> <h:inputText id="username" value="#{loginControler.username}"
+                         size="20" required="true"
+                         label="UserName" >
+                <f:validateLength minimum="3" maximum="50" />
+            </h:inputText><br/>
+            Password<br/> <h:inputSecret id="password" value="#{loginControler.password}"
+                         size="20" required="true"
+                         label="Password">
+                <f:validateLength minimum="3" maximum="50" />
+            </h:inputSecret><br/>
             <h:commandButton value="Login" action="#{loginControler.login}"/>
-        </h:form>
+        </h:form><br/>
     </div>
 </h:body>
 </html>
