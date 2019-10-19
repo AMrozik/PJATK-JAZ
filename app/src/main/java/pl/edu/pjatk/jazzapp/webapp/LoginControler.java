@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.registry.infomodel.User;
 import java.io.IOException;
+import java.net.http.HttpClient;
 
 @Named
 @RequestScoped
@@ -40,12 +41,11 @@ public class LoginControler extends HttpServlet {
             this.username = username;
         }
 
-    public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void login(){
         if(db.correctCredentials(username, password)){
             FacesContext context = FacesContext.getCurrentInstance();
             System.out.println("Zalogowano");
             context.getExternalContext().getSessionMap().put("user", username);
-            resp.sendRedirect("/index.xhtml");
         }
         else{
             System.out.println("Nie Zalogowano");
