@@ -16,31 +16,37 @@
                                             size="20" required="true"
                                             label="name" >
                                             <f:validateLength minimum="3" maximum="50" />
+                                            <f:validateRegex pattern="^[a-zA-Z0-9]{3,50}$"/>
                                         </h:inputText><br/>
                 Your Lastname:<br/>     <h:inputText id="lastname" value="#{registerRequest.lastname}"
                                              size="20" required="true"
                                              label="lastname" >
                                             <f:validateLength minimum="3" maximum="50" />
+                                            <f:validateRegex pattern="^[a-zA-Z0-9]{3,50}$"/>
                                         </h:inputText><br/>
                 Your Birth Date:<br/>   <h:inputText id="BirthDate" value="#{registerRequest.birth}"
                                               size="20" required="true"
                                               label="BirthDate" >
                                             <f:validateLength minimum="3" maximum="50" />
+                                            <f:validateRegex pattern="^[0-9]{2}/[0-9]{2}/[0-9]{4}$"/>
                                         </h:inputText><br/>
                 Username:<br/>          <h:inputText id="username" value="#{registerRequest.username}"
                                                size="20" required="true"
                                                label="UserName" >
                                             <f:validateLength minimum="3" maximum="50" />
+                                            <f:validateRegex pattern="^[a-z0-9]{3,50}$"/>
                                         </h:inputText><br/>
                 Email:<br/>             <h:inputText id="email" value="#{registerRequest.email}"
                                                size="20" required="true"
                                                label="Email" type="email" >
                                             <f:validateLength minimum="3" maximum="50" />
+                                            <f:validateRegex pattern="^[a-zA-Z0-9.!#$%’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
                                         </h:inputText><br/>
                 Password:<br/>          <h:inputSecret id="password" value="#{registerRequest.password}"
                                                size="20" required="true"
                                                label="Password" type="password">
                                             <f:validateLength minimum="5" maximum="30" />
+                                            <f:validateRegex pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,30}$"/>
                                         </h:inputSecret><br/>
                             <h:commandButton value="Login" action="#{registerRequest.register}"/>
         </h:form><br/>
