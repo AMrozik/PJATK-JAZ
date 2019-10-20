@@ -16,16 +16,6 @@ import java.io.IOException;
 public class LoginFilter extends HttpFilter {
     @Inject
     private LoginRequest loginRequest;
-//    @Override
-//    protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-//        if (req.getRequestURI().contains("/index.xhtml") && req.isRequestedSessionIdFromCookie()){
-//            res.sendRedirect("index.xhtml");
-//        }
-//        else {
-//            chain.doFilter(req, res);
-//            res.addCookie(new Cookie("Logged", loginRequest.getUsername()));
-//        }
-//    }
 
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
@@ -43,3 +33,16 @@ public class LoginFilter extends HttpFilter {
         }
     }
 }
+
+
+
+//    @Override
+//    protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
+//        if (req.getRequestURI().contains("/index.xhtml") && req.isRequestedSessionIdFromCookie()){
+//            res.sendRedirect("index.xhtml");
+//        }
+//        else {
+//            chain.doFilter(req, res);
+//            res.addCookie(new Cookie("Logged", loginRequest.getUsername()));
+//        }
+//    }

@@ -11,6 +11,17 @@
     <h:outputStylesheet name="main.css" library="css" />
 </h:head>
 <h:body>
-    <h2><h:outputText value="#{msg['hello']}"/> </h2>
+    <h2>
+        <h:panelGroup rendered="#{not empty user}">
+            <p>Welcome #{user}, you have been logged in!</p>
+            <br/><br/><br/><br/>
+            <p>#{msg.logout}</p>
+        </h:panelGroup>
+
+
+        <h:form>
+            <h:commandButton value="Logout" action="#{loginControler.logout}"/>
+        </h:form>
+    </h2>
 </h:body>
 </html>

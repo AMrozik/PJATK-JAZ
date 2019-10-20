@@ -11,6 +11,7 @@ public class DB {
     public DB(){
         map = new HashMap<>();
         map.put("Ziggy", "123");
+        map.put("root", "toor");
     }
 
     public void addUser(String username, String password){

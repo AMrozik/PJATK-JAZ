@@ -10,12 +10,23 @@ public class RegisterRequest {
     @Inject
     private DB db;
 
+    private String registerMsg;
+
+
     private String name;
     private String lastname;
     private String birth;
     private String username;
     private String email;
     private String password;
+
+    public void setRegisterMsg(String registerMsg) {
+        this.registerMsg = registerMsg;
+    }
+
+    public String getRegisterMsg() {
+        return registerMsg;
+    }
 
     public String getBirth() {
         return birth;
@@ -65,9 +76,14 @@ public class RegisterRequest {
         this.username = username;
     }
 
-    public void register(){
+    public String register(){
         if (!db.userExists(username)){
             db.addUser(username, password);
+            registerMsg = "Twoje konto zostało poprawnie założone, przejdź do strony logowania";
         }
+        else{
+            registerMsg = "Użytkownik o podanej nazwie istnieje już w systemie";
+        }
+        return "/register.xhtml";
     }
 }
