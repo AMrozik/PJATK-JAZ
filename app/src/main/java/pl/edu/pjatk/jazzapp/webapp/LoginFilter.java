@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Named
 @RequestScoped
-@WebFilter("/index.xhtml")
+@WebFilter("*")
 public class LoginFilter extends HttpFilter {
     @Inject
     private LoginRequest loginRequest;
@@ -33,16 +33,3 @@ public class LoginFilter extends HttpFilter {
         }
     }
 }
-
-
-
-//    @Override
-//    protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-//        if (req.getRequestURI().contains("/index.xhtml") && req.isRequestedSessionIdFromCookie()){
-//            res.sendRedirect("index.xhtml");
-//        }
-//        else {
-//            chain.doFilter(req, res);
-//            res.addCookie(new Cookie("Logged", loginRequest.getUsername()));
-//        }
-//    }
