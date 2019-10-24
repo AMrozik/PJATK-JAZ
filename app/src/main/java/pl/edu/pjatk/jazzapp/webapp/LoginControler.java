@@ -12,34 +12,35 @@ public class LoginControler {
     @Inject
     private DB db;
 
-        private String password;
-        private String username;
+    @Inject
+    LoginRequest loginRequest;
+
+    private String password;
+    private String username;
 
 
-        public String getUsername() {
-            return username;
-        }
+    public String getUsername() {
+        return username;
+    }
 
-        public String getPassword() {
-            return password;
-        }
+    public String getPassword() {
+        return password;
+    }
 
-        public void setPassword(String password) {
-            this.password = password;
-        }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-        public void setUsername(String username) {
-            this.username = username;
-        }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public String login(){
-        if(db.correctCredentials(username, password)){
+    public String login() {
+        if (db.correctCredentials(username, password)) {
             System.out.println("Zalogowano");
-            FacesContext facesContext = FacesContext.getCurrentInstance();
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
             return "/index.xhtml";
-        }
-        else{
+        } else {
             System.out.println("Nie Zalogowano");
             return "/login.xhtml";
         }
@@ -47,6 +48,6 @@ public class LoginControler {
 
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "index?faces-redirect=true";
+        return "index?faces-redirect=true"; // +
     }
 }
