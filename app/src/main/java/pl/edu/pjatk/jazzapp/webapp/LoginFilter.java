@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Named
 @RequestScoped
-@WebFilter("*")
+@WebFilter("/login.xhtml")
 public class LoginFilter extends HttpFilter {
     @Inject
     private LoginRequest loginRequest;

@@ -12,24 +12,28 @@
 </h:head>
 <h:body>
     <div id="page">
-        <h1><h:outputText value="#{msg.please_log_in}" /></h1>
-        <h:form>
-            Username<br/>   <h:inputText id="username" value="#{loginRequest.username}"
-                                size="20" required="true"
-                                label="UserName" >
-                                <f:validateLength minimum="3" maximum="50" />
-                            </h:inputText><br/>
-            Password<br/>   <h:inputSecret id="password" value="#{loginRequest.password}"
-                                size="20" required="true"
-                                label="Password">
-                                <f:validateLength minimum="3" maximum="50" />
-                            </h:inputSecret><br/>
-                    <h:commandButton value="Login" action="#{loginControler.login}"/>
-        </h:form><br/>
-        <h:form>
-        <h:outputText value="#{msg.register}" />
-        <h:commandButton value="Register" action="register.xhtml"/>
-        </h:form>
+    <ui:composition template="/template/common/commonLayout.xhtml">
+        <ui:define name="content">
+            <h1><h:outputText value="#{msg.please_log_in}" /></h1>
+            <h:form>
+                    Username<br/>   <h:inputText id="username" value="#{loginRequest.username}"
+                                        size="20" required="true"
+                                        label="UserName" >
+                                        <f:validateLength minimum="3" maximum="50" />
+                                    </h:inputText><br/>
+                    Password<br/>   <h:inputSecret id="password" value="#{loginRequest.password}"
+                                        size="20" required="true"
+                                        label="Password">
+                                        <f:validateLength minimum="3" maximum="50" />
+                                    </h:inputSecret><br/>
+                            <h:commandButton value="Login" action="#{loginControler.login}"/>
+            </h:form><br/>
+            <h:form>
+                <h:outputText value="#{msg.register}" />
+                <h:commandButton value="Register" action="register.xhtml"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
     </div>
 </h:body>
 </html>

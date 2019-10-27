@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:o="http://omnifaces.org/ui"
-      xmlns:of="http://omnifaces.org/functions">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>JSF 2.5 Hello World</title>
@@ -13,49 +13,53 @@
 </h:head>
 <h:body>
     <div id="page">
-        <h:form>
-                Imię:<br/>         <h:inputText id="name" value="#{registerRequest.name}"
-                                            size="20" required="true"
-                                            label="name" validatorMessage="Imie może składać się tylko z liter">
-                                            <f:validateLength minimum="3" maximum="50" />
-                                            <f:validateRegex pattern="^[a-zA-Z0-9]{3,50}$"/>
-                                        </h:inputText><br/>
-                Nazwisko:<br/>     <h:inputText id="lastname" value="#{registerRequest.lastname}"
-                                             size="20" required="true"
-                                             label="lastname" validatorMessage="Nazwisko może składać się tylko z liter">
-                                            <f:validateLength minimum="3" maximum="50" />
-                                            <f:validateRegex pattern="^[a-zA-Z0-9]{3,50}$"/>
-                                        </h:inputText><br/>
-                Data Urodzenia:<br/>   <h:inputText id="BirthDate" value="#{registerRequest.birth}"
-                                              size="20" required="true"
-                                              label="BirthDate" validatorMessage="Nieprawidłowa data urodzenia - format dd/mm/rrrr">
-                                            <f:validateLength minimum="3" maximum="50" />
-                                            <f:validateRegex pattern="^[0-9]{2}/[0-9]{2}/[0-9]{4}$"/>
-                                        </h:inputText><br/>
-                Nazwa Użytkownika:<br/>          <h:inputText id="username" value="#{registerRequest.username}"
-                                               size="20" required="true"
-                                               label="UserName" validatorMessage="Nazwa użytkownika może zawierać tylko małe litery i cyfry">
-                                            <f:validateLength minimum="3" maximum="50" />
-                                            <f:validateRegex pattern="^[a-z0-9]{3,50}$"/>
-                                        </h:inputText><br/>
-                Email:<br/>             <h:inputText id="email" value="#{registerRequest.email}"
-                                               size="20" required="true"
-                                               label="Email" type="email" validatorMessage="Nieprawidłowy adres email">
-                                            <f:validateLength minimum="3" maximum="50" />
-                                            <f:validateRegex pattern="^[a-zA-Z0-9.!#$%’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
-                                        </h:inputText><br/>
-                Hasło:<br/>          <h:inputSecret id="password" value="#{registerRequest.password}"
-                                               size="20" required="true"
-                                               label="Password" validatorMessage="Hasło musi zawierać conajmniej jedną mala i wielką literę oraz cyfrę">
-                                            <f:validateLength minimum="5" maximum="30" />
-                                            <f:validateRegex pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,30}$" />
-                                    </h:inputSecret><br/>
-                Powtórz Hasło:<br/> <h:inputSecret id="password2" size="20" required="true" label="password2" validatorMessage="Hasła muszą być takie same!" /><br/>
-                                <o:validateEqual components="password password2" message="Hasła muszą być takie same!"/><br/>
-                            <h:commandButton value="Załóż konto" action="#{registerRequest.register}"/>
-        </h:form><br/>
-        <h:outputText value="#{registerRequest.registerMsg}"/>
-        <h:link value="Wróć" outcome="login.xhtml"/>
+    <ui:composition template="/template/common/commonLayout.xhtml">
+        <ui:define name="content">
+            <h:form>
+                    Imię:<br/>         <h:inputText id="name" value="#{registerRequest.name}"
+                                                size="20" required="true"
+                                                label="name" validatorMessage="Imie może składać się tylko z liter">
+                                                <f:validateLength minimum="3" maximum="50" />
+                                                <f:validateRegex pattern="^[a-zA-Z0-9]{3,50}$"/>
+                                            </h:inputText><br/>
+                    Nazwisko:<br/>     <h:inputText id="lastname" value="#{registerRequest.lastname}"
+                                                 size="20" required="true"
+                                                 label="lastname" validatorMessage="Nazwisko może składać się tylko z liter">
+                                                <f:validateLength minimum="3" maximum="50" />
+                                                <f:validateRegex pattern="^[a-zA-Z0-9]{3,50}$"/>
+                                            </h:inputText><br/>
+                    Data Urodzenia:<br/>   <h:inputText id="BirthDate" value="#{registerRequest.birth}"
+                                                  size="20" required="true"
+                                                  label="BirthDate" validatorMessage="Nieprawidłowa data urodzenia - format dd/mm/rrrr">
+                                                <f:validateLength minimum="3" maximum="50" />
+                                                <f:validateRegex pattern="^[0-9]{2}/[0-9]{2}/[0-9]{4}$"/>
+                                            </h:inputText><br/>
+                    Nazwa Użytkownika:<br/>          <h:inputText id="username" value="#{registerRequest.username}"
+                                                   size="20" required="true"
+                                                   label="UserName" validatorMessage="Nazwa użytkownika może zawierać tylko małe litery i cyfry">
+                                                <f:validateLength minimum="3" maximum="50" />
+                                                <f:validateRegex pattern="^[a-z0-9]{3,50}$"/>
+                                            </h:inputText><br/>
+                    Email:<br/>             <h:inputText id="email" value="#{registerRequest.email}"
+                                                   size="20" required="true"
+                                                   label="Email" type="email" validatorMessage="Nieprawidłowy adres email">
+                                                <f:validateLength minimum="3" maximum="50" />
+                                                <f:validateRegex pattern="^[a-zA-Z0-9.!#$%’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
+                                            </h:inputText><br/>
+                    Hasło:<br/>          <h:inputSecret id="password" value="#{registerRequest.password}"
+                                                   size="20" required="true"
+                                                   label="Password" validatorMessage="Hasło musi zawierać conajmniej jedną mala i wielką literę oraz cyfrę">
+                                                <f:validateLength minimum="5" maximum="30" />
+                                                <f:validateRegex pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,30}$" />
+                                        </h:inputSecret><br/>
+                    Powtórz Hasło:<br/> <h:inputSecret id="password2" size="20" required="true" label="password2" validatorMessage="Hasła muszą być takie same!" /><br/>
+                                    <o:validateEqual components="password password2" message="Hasła muszą być takie same!"/><br/>
+                                <h:commandButton value="Załóż konto" action="#{registerRequest.register}"/>
+            </h:form><br/>
+                <h:outputText value="#{registerRequest.registerMsg}"/>
+                <h:link value="Wróć" outcome="login.xhtml"/>
+        </ui:define>
+    </ui:composition>
     </div>
 </h:body>
 </html>
