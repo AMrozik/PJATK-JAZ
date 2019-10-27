@@ -21,12 +21,14 @@ public class LoginFilter extends HttpFilter {
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         String loginURI = req.getContextPath() + "/login.xhtml";
+        String registerURI = req.getContextPath() + "/register.xhtml";
 
         boolean loggedIn = session != null && session.getAttribute("user") != null;
         boolean loginRequest = req.getRequestURI().equals(loginURI);
+        boolean registerRequest = req.getRequestURI().equals(registerURI);
         boolean resourceRequest = req.getRequestURI().startsWith(req.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER);
 
-        if (loggedIn || loginRequest || resourceRequest) {
+        if (loggedIn || loginRequest || resourceRequest || registerRequest) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(loginURI);

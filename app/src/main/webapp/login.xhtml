@@ -14,12 +14,12 @@
     <div id="page">
         <h1><h:outputText value="#{msg.please_log_in}" /></h1>
         <h:form>
-            Username<br/>   <h:inputText id="username" value="#{loginControler.username}"
+            Username<br/>   <h:inputText id="username" value="#{loginRequest.username}"
                                 size="20" required="true"
                                 label="UserName" >
                                 <f:validateLength minimum="3" maximum="50" />
                             </h:inputText><br/>
-            Password<br/>   <h:inputSecret id="password" value="#{loginControler.password}"
+            Password<br/>   <h:inputSecret id="password" value="#{loginRequest.password}"
                                 size="20" required="true"
                                 label="Password">
                                 <f:validateLength minimum="3" maximum="50" />

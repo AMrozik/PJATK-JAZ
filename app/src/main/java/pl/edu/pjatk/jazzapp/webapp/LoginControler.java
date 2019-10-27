@@ -15,27 +15,9 @@ public class LoginControler {
     @Inject
     LoginRequest loginRequest;
 
-    private String password;
-    private String username;
-
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String login() {
+        String username = loginRequest.getUsername();
+        String password = loginRequest.getPassword();
         if (db.correctCredentials(username, password)) {
             System.out.println("Zalogowano");
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
@@ -48,6 +30,6 @@ public class LoginControler {
 
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "index?faces-redirect=true"; // +
+        return "index?faces-redirect=true";
     }
 }
