@@ -12,13 +12,14 @@ import java.io.IOException;
 
 @Named
 @RequestScoped
-@WebFilter("/login.xhtml")
+@WebFilter("*")
 public class LoginFilter extends HttpFilter {
     @Inject
     private LoginRequest loginRequest;
 
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
+        @SuppressWarnings("rawtypes")
         HttpSession session = req.getSession(false);
         String loginURI = req.getContextPath() + "/login.xhtml";
         String registerURI = req.getContextPath() + "/register.xhtml";
@@ -32,6 +33,20 @@ public class LoginFilter extends HttpFilter {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect(loginURI);
+        }
+
+        String uri = ((HttpServletRequest)req).getRequestURI();
+        if ( uri.indexOf("/css") > 0){
+            chain.doFilter(req, res);
+        }
+        else if( uri.indexOf("/images") > 0){
+            chain.doFilter(req, res);
+        }
+        else if( uri.indexOf("/js") > 0){
+            chain.doFilter(req, res);
+        }
+        else {
+            res.sendRedirect(req.getContextPath() + "/login?authentication=failed");
         }
     }
 }
