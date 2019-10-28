@@ -28,6 +28,7 @@
                                     </h:inputSecret><br/>
                             <h:commandButton value="Login" action="#{loginControler.login}"/>
             </h:form><br/>
+            <span style="color: red"> <h:outputText value="#{loginControler.loginMsg}"/></span><br/>
             <h:form>
                 <h:outputText value="#{msg.register}" /><br/>
                 <h:commandButton value="Register" action="register.xhtml"/>

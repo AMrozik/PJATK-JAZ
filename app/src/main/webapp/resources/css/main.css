@@ -59,6 +59,18 @@ input[type=text]:focus, input[type=password]:focus {
     border-bottom: 2px solid aqua;
 }
 
+input[type=submit]{
+    background-color: aqua;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 3px;
+    border-radius: 6px;
+}
+
 #javax_faces_developmentstage_messages{
     max-height: 0px;
 }
