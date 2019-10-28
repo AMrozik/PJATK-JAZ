@@ -51,5 +51,4 @@
             <param-value>login.jsp, *.css, *.js, *.png</param-value>
         </init-param>
     </filter>
-
 </web-app>

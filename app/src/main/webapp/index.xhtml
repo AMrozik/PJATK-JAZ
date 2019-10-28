@@ -8,26 +8,26 @@
 
 <h:head>
     <title>JSF 2.5 Hello World</title>
-    <h:outputStylesheet name="main.css" library="css" />
+    <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
 <h:body>
     <div id="page">
-    <ui:composition template="/template/common/commonLayout.xhtml">
-        <ui:define name="content">
-            <h2>
-                <h:panelGroup rendered="#{not empty user}">
-                    <p>Welcome #{user}, you have been logged in!</p>
-                    <br/><br/><br/><br/>
-                    <p>#{msg.logout}</p>
-                </h:panelGroup>
+        <ui:composition template="/template/common/commonLayout.xhtml">
+            <ui:define name="content">
+                <h2>
+                    <h:panelGroup rendered="#{not empty user}">
+                        <p>Welcome #{user}, you have been logged in!</p>
+                        <br/><br/><br/><br/>
+                        <p>#{msg.logout}</p>
+                    </h:panelGroup>
 
 
-                <h:form>
-                    <h:commandButton value="Logout" action="#{loginControler.logout}"/>
-                </h:form>
-            </h2>
-        </ui:define>
-    </ui:composition>
+                    <h:form>
+                        <h:commandButton value="Logout" action="#{loginControler.logout}"/>
+                    </h:form>
+                </h2>
+            </ui:define>
+        </ui:composition>
     </div>
 </h:body>
 </html>

@@ -23,6 +23,7 @@ public class LoginFilter extends HttpFilter {
         HttpSession session = req.getSession(false);
         String loginURI = req.getContextPath() + "/login.xhtml";
         String registerURI = req.getContextPath() + "/register.xhtml";
+        String uri = req.getRequestURI();
 
         boolean loggedIn = session != null && session.getAttribute("user") != null;
         boolean loginRequest = req.getRequestURI().equals(loginURI);
@@ -31,22 +32,15 @@ public class LoginFilter extends HttpFilter {
 
         if (loggedIn || loginRequest || resourceRequest || registerRequest) {
             chain.doFilter(req, res);
+        }
+        else if (uri.indexOf("/css") > 0) {
+            chain.doFilter(req, res);
+        } else if (uri.indexOf("/images") > 0) {
+            chain.doFilter(req, res);
+        } else if (uri.indexOf("/js") > 0) {
+            chain.doFilter(req, res);
         } else {
             res.sendRedirect(loginURI);
-        }
-
-        String uri = ((HttpServletRequest)req).getRequestURI();
-        if ( uri.indexOf("/css") > 0){
-            chain.doFilter(req, res);
-        }
-        else if( uri.indexOf("/images") > 0){
-            chain.doFilter(req, res);
-        }
-        else if( uri.indexOf("/js") > 0){
-            chain.doFilter(req, res);
-        }
-        else {
-            res.sendRedirect(req.getContextPath() + "/login?authentication=failed");
         }
     }
 }
