@@ -29,7 +29,6 @@ public class LoginControler {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
         if (db.correctCredentials(username, password)) {
-            System.out.println("Zalogowano");
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
             return "/index.xhtml";
         } else {

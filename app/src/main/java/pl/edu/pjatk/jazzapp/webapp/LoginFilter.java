@@ -30,7 +30,10 @@ public class LoginFilter extends HttpFilter {
         boolean registerRequest = req.getRequestURI().equals(registerURI);
         boolean resourceRequest = req.getRequestURI().startsWith(req.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER);
 
-        if (loggedIn || loginRequest || resourceRequest || registerRequest) {
+        if(loggedIn && loginRequest || loggedIn && registerRequest){
+            res.sendRedirect(req.getContextPath() + "/index.xhtml");
+        }
+       else if (loggedIn || loginRequest || resourceRequest || registerRequest) {
             chain.doFilter(req, res);
         }
         else if (uri.indexOf("/css") > 0) {
