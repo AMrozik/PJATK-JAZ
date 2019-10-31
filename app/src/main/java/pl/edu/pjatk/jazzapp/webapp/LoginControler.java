@@ -30,7 +30,7 @@ public class LoginControler {
         String password = loginRequest.getPassword();
         if (db.correctCredentials(username, password)) {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
-            return "/index.xhtml";
+            return "index?faces-redirect=true";
         } else {
             loginMsg = "Niewłaściwy login lub hasło";
             return "/login.xhtml";
