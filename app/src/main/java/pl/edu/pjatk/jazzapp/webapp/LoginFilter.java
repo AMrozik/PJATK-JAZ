@@ -40,8 +40,6 @@ public class LoginFilter extends HttpFilter {
             chain.doFilter(req, res);
         } else if (uri.indexOf("/images") > 0) {
             chain.doFilter(req, res);
-        } else if (uri.indexOf("/js") > 0) {
-            chain.doFilter(req, res);
         } else {
             res.sendRedirect(loginURI);
         }

@@ -63,9 +63,9 @@
                     Powtórz Hasło:<br/> <h:inputSecret id="password2" size="20" required="true" label="password2" requiredMessage="wprowadź hasło ponownie" validatorMessage="Hasła muszą być takie same!" /><br/>
                                     <o:validateEqual components="password password2" message="Hasła muszą być takie same!" showMessageFor="password2"/><br/>
                                         <h:message for="password2" style="color:red" /><br/>
-                                <h:commandButton value="Załóż konto" action="#{registerRequest.register}"/>
+                                <h:commandButton value="Załóż konto" action="#{registerControler.register}"/>
             </h:form><br/>
-                <span style="color: green"> <h:outputText value="#{registerRequest.registerMsg}"/></span><br/>
+                <span style="color: green"> <h:outputText value="#{registerControler.registerMsg}"/></span><br/>
                 <h:link value="Wróć" outcome="login.xhtml"/>
         </ui:define>
     </ui:composition>
