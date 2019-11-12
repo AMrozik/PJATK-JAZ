@@ -28,6 +28,7 @@ public class LoginControler {
     public String login() {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
+
         if (db.correctCredentials(username, password)) {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
             return "index?faces-redirect=true";

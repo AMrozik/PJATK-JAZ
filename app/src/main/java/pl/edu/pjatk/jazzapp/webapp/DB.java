@@ -10,8 +10,6 @@ public class DB {
     private HashMap<String, String> map;
     public DB(){
         map = new HashMap<>();
-        map.put("Ziggy", "123");
-        map.put("root", "toor");
     }
 
     public void addUser(String username, String password){

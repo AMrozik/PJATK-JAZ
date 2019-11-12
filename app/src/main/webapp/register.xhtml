@@ -22,14 +22,14 @@
                                                 size="20" required="true"
                                                 label="name" requiredMessage="wprowadź imię" validatorMessage="Imie powinno składać się tylko z liter">
                                                 <f:validateLength minimum="3" maximum="50" />
-                                                <f:validateRegex pattern="^[a-zA-Z]{3,50}$"/>
+                                                <f:validateRegex pattern="^[a-zA-ZążśźćńłóęĄŻŹĆŃŁŚÓĘ]{3,50}$"/>
                                             </h:inputText><br/>
                                             <h:message for="name" style="color:red" /><br/>
                     Nazwisko:<br/>     <h:inputText id="lastname" value="#{registerRequest.lastname}"
                                                  size="20" required="true"
                                                  label="lastname" requiredMessage="wprowadź nazwisko" validatorMessage="Nazwisko może składać się tylko z liter">
                                                 <f:validateLength minimum="3" maximum="50" />
-                                                <f:validateRegex pattern="^[a-zA-Z0-9]{3,50}$"/>
+                                                <f:validateRegex pattern="^[a-zA-ZążśźćńłóęĄŻŹĆŃŁŚÓĘ]{3,50}$"/>
                                             </h:inputText><br/>
                                                 <h:message for="lastname" style="color:red" /><br/>
                     Data Urodzenia:<br/>   <h:inputText id="BirthDate" value="#{registerRequest.birth}"
@@ -55,7 +55,7 @@
                                                 <h:message for="email" style="color:red" /><br/>
                     Hasło:<br/>          <h:inputSecret id="password" value="#{registerRequest.password}"
                                                    size="20" required="true"
-                                                   label="Password" requiredMessage="wprowadź hasło" validatorMessage="Hasło musi zawierać conajmniej jedną mala i wielką literę oraz cyfrę">
+                                                   label="Password" requiredMessage="wprowadź hasło" validatorMessage="Hasło musi zawierać conajmniej jedną małą i wielką literę oraz cyfrę">
                                                 <f:validateLength minimum="5" maximum="30" />
                                                 <f:validateRegex pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,30}$"/>
                                         </h:inputSecret><br/>

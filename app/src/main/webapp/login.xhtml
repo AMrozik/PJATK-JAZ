@@ -21,11 +21,13 @@
                                         label="UserName" requiredMessage="wprowadź nazwe użytkownika">
                                         <f:validateLength minimum="3" maximum="50"/>
                                     </h:inputText><br/>
+                                    <h:message for="username" style="color:red" /><br/>
                     Password<br/>   <h:inputSecret id="password" value="#{loginRequest.password}"
                                         size="20" required="true"
                                         label="Password" requiredMessage="wprowadź hasło">
                                         <f:validateLength minimum="3" maximum="50" />
                                     </h:inputSecret><br/>
+                                    <h:message for="password" style="color:red" /><br/>
                             <h:commandButton value="Login" action="#{loginControler.login}"/>
             </h:form><br/>
             <span style="color: red"> <h:outputText value="#{loginControler.loginMsg}"/></span><br/>
