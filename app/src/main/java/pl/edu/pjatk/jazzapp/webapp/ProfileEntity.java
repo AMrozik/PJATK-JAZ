@@ -5,6 +5,7 @@ import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "profile")
 public class ProfileEntity {
 
     @Id

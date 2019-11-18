@@ -19,30 +19,30 @@
                 <h2>Zarejestruj się na Allezon!</h2>
                 <h3>Podaj swoje dane, aby założyć konto</h3>
                 <h:form>
-                    Imię:<br/> <h:inputText id="name" value="#{registerRequest.name}"
-                                            size="20" required="true"
-                                            label="name" requiredMessage="wprowadź imię"
-                                            validatorMessage="Imie powinno składać się tylko z liter">
-                    <f:validateLength minimum="3" maximum="50"/>
-                    <f:validateRegex pattern="^[a-zA-ZążśźćńłóęĄŻŹĆŃŁŚÓĘ]{3,50}$"/>
-                </h:inputText><br/>
-                    <h:message for="name" style="color:red"/><br/>
-                    Nazwisko:<br/> <h:inputText id="lastname" value="#{registerRequest.lastname}"
-                                                size="20" required="true"
-                                                label="lastname" requiredMessage="wprowadź nazwisko"
-                                                validatorMessage="Nazwisko może składać się tylko z liter">
-                    <f:validateLength minimum="3" maximum="50"/>
-                    <f:validateRegex pattern="^[a-zA-ZążśźćńłóęĄŻŹĆŃŁŚÓĘ]{3,50}$"/>
-                </h:inputText><br/>
-                    <h:message for="lastname" style="color:red"/><br/>
-                    Data Urodzenia:<br/> <h:inputText id="BirthDate" value="#{registerRequest.birth}"
-                                                      size="20" required="true"
-                                                      label="BirthDate" requiredMessage="wprowadź date urodzenia"
-                                                      validatorMessage="Nieprawidłowa data urodzenia - format dd/mm/rrrr">
-                    <f:validateLength minimum="3" maximum="50"/>
-                    <f:validateRegex pattern="^[0-9]{2}/[0-9]{2}/[0-9]{4}$"/>
-                </h:inputText><br/>
-                    <h:message for="BirthDate" style="color:red"/><br/>
+<!--                    Imię:<br/> <h:inputText id="name" value="#{registerRequest.name}"-->
+<!--                                            size="20" required="true"-->
+<!--                                            label="name" requiredMessage="wprowadź imię"-->
+<!--                                            validatorMessage="Imie powinno składać się tylko z liter">-->
+<!--                    <f:validateLength minimum="3" maximum="50"/>-->
+<!--                    <f:validateRegex pattern="^[a-zA-ZążśźćńłóęĄŻŹĆŃŁŚÓĘ]{3,50}$"/>-->
+<!--                </h:inputText><br/>-->
+<!--                    <h:message for="name" style="color:red"/><br/>-->
+<!--                    Nazwisko:<br/> <h:inputText id="lastname" value="#{registerRequest.lastname}"-->
+<!--                                                size="20" required="true"-->
+<!--                                                label="lastname" requiredMessage="wprowadź nazwisko"-->
+<!--                                                validatorMessage="Nazwisko może składać się tylko z liter">-->
+<!--                    <f:validateLength minimum="3" maximum="50"/>-->
+<!--                    <f:validateRegex pattern="^[a-zA-ZążśźćńłóęĄŻŹĆŃŁŚÓĘ]{3,50}$"/>-->
+<!--                </h:inputText><br/>-->
+<!--                    <h:message for="lastname" style="color:red"/><br/>-->
+<!--                    Data Urodzenia:<br/> <h:inputText id="BirthDate" value="#{registerRequest.birth}"-->
+<!--                                                      size="20" required="true"-->
+<!--                                                      label="BirthDate" requiredMessage="wprowadź date urodzenia"-->
+<!--                                                      validatorMessage="Nieprawidłowa data urodzenia - format dd/mm/rrrr">-->
+<!--                    <f:validateLength minimum="3" maximum="50"/>-->
+<!--                    <f:validateRegex pattern="^[0-9]{2}/[0-9]{2}/[0-9]{4}$"/>-->
+<!--                </h:inputText><br/>-->
+<!--                    <h:message for="BirthDate" style="color:red"/><br/>-->
                     Nazwa Użytkownika:<br/> <h:inputText id="username" value="#{registerRequest.username}"
                                                          size="20" required="true"
                                                          label="UserName" requiredMessage="wprowadź nazwe użytkownika"
@@ -51,14 +51,14 @@
                     <f:validateRegex pattern="^[a-z0-9]{3,50}$"/>
                 </h:inputText><br/>
                     <h:message for="username" style="color:red"/><br/>
-                    Email:<br/> <h:inputText id="email" value="#{registerRequest.email}"
-                                             size="20" required="true"
-                                             label="Email" type="email" requiredMessage="podaj adres email"
-                                             validatorMessage="Nieprawidłowy adres email">
-                    <f:validateLength minimum="3" maximum="50"/>
-                    <f:validateRegex pattern="^[a-zA-Z0-9.!#$%’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
-                </h:inputText><br/>
-                    <h:message for="email" style="color:red"/><br/>
+<!--                    Email:<br/> <h:inputText id="email" value="#{registerRequest.email}"-->
+<!--                                             size="20" required="true"-->
+<!--                                             label="Email" type="email" requiredMessage="podaj adres email"-->
+<!--                                             validatorMessage="Nieprawidłowy adres email">-->
+<!--                    <f:validateLength minimum="3" maximum="50"/>-->
+<!--                    <f:validateRegex pattern="^[a-zA-Z0-9.!#$%’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>-->
+<!--                </h:inputText><br/>-->
+<!--                    <h:message for="email" style="color:red"/><br/>-->
                     Hasło:<br/> <h:inputSecret id="password" value="#{registerRequest.password}"
                                                size="20" required="true"
                                                label="Password" requiredMessage="wprowadź hasło"
