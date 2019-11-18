@@ -11,6 +11,8 @@ public class RegisterControler {
     private DB db;
     @Inject
     private RegisterRequest register;
+    @Inject
+    ProfileRepository pr;
 
     private String registerMsg;
 
@@ -25,6 +27,7 @@ public class RegisterControler {
     public String register(){
         if (!db.userExists(register.getUsername())){
             db.addUser(register.getUsername(), register.getPassword());
+            pr.sampleCodeWithPC();
             registerMsg = "Twoje konto zostało poprawnie założone, przejdź do strony logowania";
         }
         else{
