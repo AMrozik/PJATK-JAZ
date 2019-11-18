@@ -40,12 +40,12 @@
 
     <session-config>
         <session-timeout>3600</session-timeout>
-        <tracking-mode>COOKIE</tracking-mode>
+<!--        <tracking-mode>COOKIE</tracking-mode>-->
     </session-config>
 
     <filter>
         <filter-name>LoginFilter</filter-name>
-        <filter-class>pl.edu.pjatk.jazzapp.webapp.LoginFilter</filter-class>
+        <filter-class>pl.edu.pjatk.jazapp.login.LoginFilter</filter-class>
         <init-param>
             <param-name>avoid-urls</param-name>
             <param-value>login.jsp, *.css, *.js, *.png</param-value>

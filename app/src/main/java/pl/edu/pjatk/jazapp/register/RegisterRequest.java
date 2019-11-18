@@ -1,7 +1,6 @@
-package pl.edu.pjatk.jazzapp.webapp;
+package pl.edu.pjatk.jazapp.register;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named

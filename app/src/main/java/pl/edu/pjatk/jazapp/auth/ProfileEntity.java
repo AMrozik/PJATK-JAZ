@@ -1,6 +1,4 @@
-package pl.edu.pjatk.jazzapp.webapp;
-
-import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
+package pl.edu.pjatk.jazapp.auth;
 
 import javax.persistence.*;
 

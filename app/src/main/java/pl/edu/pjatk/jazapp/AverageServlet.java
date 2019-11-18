@@ -1,4 +1,4 @@
-package pl.edu.pjatk.jazzapp;
+package pl.edu.pjatk.jazapp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,4 +1,6 @@
-package pl.edu.pjatk.jazzapp.webapp;
+package pl.edu.pjatk.jazapp.login;
+
+//import pl.edu.pjatk.jazapp.webapp.DB;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -9,8 +11,6 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class LoginControler {
-    @Inject
-    private DB db;
 
     @Inject
     LoginRequest loginRequest;
@@ -25,17 +25,24 @@ public class LoginControler {
         return loginMsg;
     }
 
+
+
+
+
+//    TODO: zmienić hashmape na baze danych2
+
     public String login() {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
 
-        if (db.correctCredentials(username, password)) {
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
-            return "index?faces-redirect=true";
-        } else {
-            loginMsg = "Niewłaściwy login lub hasło";
-            return "/login.xhtml";
-        }
+//        if (db.correctCredentials(username, password)) {
+//            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
+//            return "index?faces-redirect=true";
+//        } else {
+//            loginMsg = "Niewłaściwy login lub hasło";
+//            return "/login.xhtml";
+//        }
+        return "";
     }
 
     public String logout() {

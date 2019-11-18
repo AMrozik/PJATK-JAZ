@@ -1,4 +1,4 @@
-package pl.edu.pjatk.jazzapp.webapp;
+package pl.edu.pjatk.jazapp.login;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.ResourceHandler;

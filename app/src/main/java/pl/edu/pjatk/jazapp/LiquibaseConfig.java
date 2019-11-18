@@ -1,4 +1,4 @@
-package pl.edu.pjatk.jazzapp;
+package pl.edu.pjatk.jazapp;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
