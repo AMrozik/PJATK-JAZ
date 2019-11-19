@@ -18,6 +18,7 @@ public class LiquibaseConfig {
     public CDILiquibaseConfig createConfig() {
         CDILiquibaseConfig config = new CDILiquibaseConfig();
         config.setChangeLog("db.changelog/db.changelog.yaml");
+        config.setShouldRun(false);
         return config;
     }
 

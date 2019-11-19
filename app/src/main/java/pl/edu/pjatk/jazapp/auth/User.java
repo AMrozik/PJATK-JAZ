@@ -8,9 +8,9 @@ public class User {
     private final String username;
     private final String password;
     private final String email;
-    private final LocalDate birthDate;
+    private final String birthDate;
 
-    public User(String firstName, String lastName, String username, String password, String email, LocalDate birthDate) {
+    public User(String firstName, String lastName, String username, String password, String email, String birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -39,7 +39,7 @@ public class User {
         return email;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 }

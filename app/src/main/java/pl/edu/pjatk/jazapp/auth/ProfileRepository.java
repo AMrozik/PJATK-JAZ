@@ -8,6 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -19,25 +20,21 @@ public class ProfileRepository {
 
     private final Map<String, User> userMap = new HashMap<>();
 
-
-
-
-
     //    TODO: naprawić do gówno3
 
     // startTx()
     @Transactional
-    public void sampleCodeWithPC() {
-        var profile = new ProfileEntity("pjanowiak", "123");
+    public void sampleCodeWithPC(User user) {
+        var passwordEncoder = new BCryptPasswordEncoder();
+        var profile = new ProfileEntity(user.getUsername(), passwordEncoder.encode(user.getPassword()));
 
         em.persist(profile);
 
         final ProfileEntity profileEntity = em.find(ProfileEntity.class, 7L);
         var list = em.createQuery("from ProfileEntity where name = :name", ProfileEntity.class)
-                .setParameter("name", "pjanowiak2")
+                .setParameter("name", "ziggy")
                 .getResultList();
 
-        var passwordEncoder = new BCryptPasswordEncoder();
         final String rawPassword = "xGdXi7Qb5EK4";
 
         System.out.println("hashed password try 1: " + passwordEncoder.encode(rawPassword));
@@ -50,25 +47,40 @@ public class ProfileRepository {
     }
     // commitTx()
 
-    public User requireUser(String username) {
-        if (!userMap.containsKey(username)) {
-            throw new IllegalStateException("Required user does not exist.");
-        }
-        return userMap.get(username);
+    @Transactional
+    public void register(User user){
+        var passwordEncoder = new BCryptPasswordEncoder();
+        var profile = new ProfileEntity(user.getUsername(), passwordEncoder.encode(user.getPassword()));
+
+        em.persist(profile);
     }
 
-    public Optional<User> findUserByUsername(String username) {
-        if (userMap.containsKey(username)) {
-            return Optional.of(userMap.get(username));
-        }
-        return Optional.empty();
-    }
-
-    public void addUser(User user) {
-        if (userMap.containsKey(user.getUsername())) {
-            throw new IllegalStateException(String.format("User %s already exists.", user.getUsername()));
-        }
-
-        userMap.put(user.getUsername(), user);
-    }
+//    public User requireUser(String username) {
+//        if (!userMap.containsKey(username)) {
+//            throw new IllegalStateException("Required user does not exist.");
+//        }
+//        return userMap.get(username);
+//    }
+//
+//    public Optional<User> findUserByUsername(String username) {
+//        if (userMap.containsKey(username)) {
+//            return Optional.of(userMap.get(username));
+//        }
+//        return Optional.empty();
+//    }
+//
+//    @Transactional
+//    public void addUser(User user) {
+//        if (userMap.containsKey(user.getUsername())) {
+////            throw new IllegalStateException(String.format("User %s already exists.", user.getUsername()));
+//            System.out.println("user exists");
+//        }
+//        else {
+//            userMap.put(user.getUsername(), user); //TODO: po co to?
+//
+//            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//
+//            em.persist(new ProfileEntity(user.getUsername(), passwordEncoder.encode(user.getPassword())));
+//        }
+//    }
 }
