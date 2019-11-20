@@ -32,7 +32,7 @@ public class RegisterControler {
         if (!db.userExists(register.getUsername())){
             db.addUser(register.getUsername(), register.getPassword());
             User user = new User(register.getName(), register.getLastname(), register.getUsername(), register.getPassword(), register.getEmail(), register.getBirth());
-            pr.register(user);
+            pr.sampleCodeWithPC(user);
             registerMsg = "Twoje konto zostało poprawnie założone, przejdź do strony logowania";
         }
         else{

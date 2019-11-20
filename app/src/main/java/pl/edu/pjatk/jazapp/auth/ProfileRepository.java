@@ -1,17 +1,12 @@
 package pl.edu.pjatk.jazapp.auth;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import pl.edu.pjatk.jazapp.auth.ProfileEntity;
-import pl.edu.pjatk.jazapp.auth.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @ApplicationScoped
 public class ProfileRepository {
@@ -31,9 +26,11 @@ public class ProfileRepository {
         em.persist(profile);
 
         final ProfileEntity profileEntity = em.find(ProfileEntity.class, 7L);
-        var list = em.createQuery("from ProfileEntity where name = :name", ProfileEntity.class)
-                .setParameter("name", "ziggy")
+        List<ProfileEntity> list = em.createQuery("from ProfileEntity where name = :name", ProfileEntity.class)
+                .setParameter("name", user.getUsername())
                 .getResultList();
+
+
 
         final String rawPassword = "xGdXi7Qb5EK4";
 
@@ -43,7 +40,7 @@ public class ProfileRepository {
 
         System.out.println("Does password match?: " + passwordEncoder.matches(rawPassword, hashedPassword));
 
-        System.out.println();
+        System.out.println("user exists" + list.contains(profile));
     }
     // commitTx()
 
