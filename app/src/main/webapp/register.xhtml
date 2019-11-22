@@ -76,7 +76,7 @@
                     <h:commandButton value="Załóż konto" action="#{registerControler.register}"/>
                 </h:form><br/>
                 <span style="color: green"> <h:outputText value="#{registerControler.registerMsg}"/></span><br/>
-                <h:link value="Wróć" outcome="login.xhtml"/>
+                <h:link value="Wróć" outcome="login.xhtml?faces-redirect=true"/>
             </ui:define>
         </ui:composition>
     </div>

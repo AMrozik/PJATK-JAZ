@@ -1,6 +1,5 @@
 package pl.edu.pjatk.jazapp.register;
 
-import pl.edu.pjatk.jazapp.auth.DB;
 import pl.edu.pjatk.jazapp.auth.ProfileRepository;
 import pl.edu.pjatk.jazapp.auth.User;
 
@@ -12,11 +11,9 @@ import javax.inject.Named;
 @RequestScoped
 public class RegisterControler {
     @Inject
-    private DB db;
-    @Inject
     private RegisterRequest register;
     @Inject
-    ProfileRepository pr;
+    ProfileRepository db;
 
     private String registerMsg;
 
@@ -29,10 +26,9 @@ public class RegisterControler {
     }
 
     public String register(){
-        if (!db.userExists(register.getUsername())){
-            db.addUser(register.getUsername(), register.getPassword());
-            User user = new User(register.getName(), register.getLastname(), register.getUsername(), register.getPassword(), register.getEmail(), register.getBirth());
-            pr.sampleCodeWithPC(user);
+        User user = new User(register.getName(), register.getLastname(), register.getUsername(), register.getPassword(), register.getEmail(), register.getBirth());
+        if (!db.userExists(user)){
+            db.addUser(user);
             registerMsg = "Twoje konto zostało poprawnie założone, przejdź do strony logowania";
         }
         else{
@@ -40,36 +36,4 @@ public class RegisterControler {
         }
         return "/register.xhtml";
     }
-
-
-
-
-
-////    TODO: zmienić hashmape na baze danych
-//
-//    @Inject
-//    private RegisterRequest registerRequest;
-//
-//    @Inject
-//    private ProfileService profileService;
-//
-//    public String register() {
-//        if (profileService.doesUserExist(registerRequest.getUsername())) {
-////            FacesContext.getCurrentInstance().getExternalContext().getFlash()
-////                    .put("already-exists", "Username already exists.");
-//            registerMsg = "user already exists";
-//            return "";
-//        }
-//
-//        profileService.addUser(
-//                registerRequest.getName(),
-//                registerRequest.getLastname(),
-//                registerRequest.getUsername(),
-//                registerRequest.getPassword(),
-//                registerRequest.getEmail(),
-//                registerRequest.getBirth()
-//        );
-//
-//        return "login.xhtml?faces-redirect=true";
-//    }
 }

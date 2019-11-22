@@ -25,6 +25,15 @@ public class ProfileEntity {
         this.birthDate = user.getBirthDate();
     }
 
+    public ProfileEntity(User user, String encodedPassword) {
+        this.username = user.getUsername();
+        this.password = encodedPassword;
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.email = user.getEmail();
+        this.birthDate = user.getBirthDate();
+    }
+
     public ProfileEntity( ){};
 
     public String getUsername() {
