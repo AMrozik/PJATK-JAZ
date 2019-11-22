@@ -21,14 +21,14 @@ public class ProfileRepository {
     @Transactional
     public void sampleCodeWithPC(User user) {
         var passwordEncoder = new BCryptPasswordEncoder();
-        var profile = new ProfileEntity(user.getUsername(), passwordEncoder.encode(user.getPassword()));
+        var profile = new ProfileEntity(user);
 
         em.persist(profile);
 
         final ProfileEntity profileEntity = em.find(ProfileEntity.class, 7L);
-        List<ProfileEntity> list = em.createQuery("from ProfileEntity where name = :name", ProfileEntity.class)
-                .setParameter("name", user.getUsername())
-                .getResultList();
+        var foundUSer = em.createQuery("from ProfileEntity where username = :username", ProfileEntity.class)
+                .setParameter("username", user.getUsername())
+                .getSingleResult();
 
 
 
@@ -40,16 +40,25 @@ public class ProfileRepository {
 
         System.out.println("Does password match?: " + passwordEncoder.matches(rawPassword, hashedPassword));
 
-        System.out.println("user exists" + list.contains(profile));
+        System.out.println("user exists" + (foundUSer != null));
     }
     // commitTx()
 
     @Transactional
     public void register(User user){
         var passwordEncoder = new BCryptPasswordEncoder();
-        var profile = new ProfileEntity(user.getUsername(), passwordEncoder.encode(user.getPassword()));
+        var profile = new ProfileEntity(user);
 
         em.persist(profile);
+    }
+
+    @Transactional
+    public boolean userExists(User user){
+        var foundUSer = em.createQuery("from ProfileEntity where username = :username", ProfileEntity.class)
+                .setParameter("username", user.getUsername())
+                .getSingleResult();
+
+        return foundUSer != null;
     }
 
 //    public User requireUser(String username) {

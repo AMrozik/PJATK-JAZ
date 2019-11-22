@@ -1,14 +1,12 @@
 package pl.edu.pjatk.jazapp.auth;
 
-import java.time.LocalDate;
-
 public class User {
     private final String firstName;
     private final String lastName;
     private final String username;
     private final String password;
     private final String email;
-    private final String birthDate;
+    private final String  birthDate;
 
     public User(String firstName, String lastName, String username, String password, String email, String birthDate) {
         this.firstName = firstName;

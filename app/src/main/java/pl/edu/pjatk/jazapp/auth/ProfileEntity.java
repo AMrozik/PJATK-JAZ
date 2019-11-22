@@ -9,22 +9,70 @@ public class ProfileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
+    private String username;
     private String password;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String birthDate;
 
-    public ProfileEntity(String name, String password) {
-        this.name = name;
-        this.password = password;
+    public ProfileEntity(User user) {
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.email = user.getEmail();
+        this.birthDate = user.getBirthDate();
     }
 
     public ProfileEntity( ){};
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
 
     public Long getId() {
         return id;
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public String getPassword() {
@@ -36,7 +84,7 @@ public class ProfileEntity {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public void setPassword(String password) {
