@@ -32,7 +32,9 @@
             </h:form><br/>
             <span style="color: red"> <h:outputText value="#{loginControler.loginMsg}"/></span><br/>
                 <h:outputText value="#{msg.register}" /><br/>
-                <h:link value="Register" outcome="register.xhtml"/>
+            <h:form>
+                <h:commandButton value="Register" action="register.xhtml"/>
+            </h:form><br/>
         </ui:define>
     </ui:composition>
     </div>

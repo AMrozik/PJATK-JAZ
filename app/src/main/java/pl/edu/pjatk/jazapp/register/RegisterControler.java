@@ -13,7 +13,7 @@ public class RegisterControler {
     @Inject
     private RegisterRequest register;
     @Inject
-    ProfileRepository db;
+    private ProfileRepository db;
 
     private String registerMsg;
 
