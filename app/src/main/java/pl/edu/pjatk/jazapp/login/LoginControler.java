@@ -1,7 +1,5 @@
 package pl.edu.pjatk.jazapp.login;
 
-//import pl.edu.pjatk.jazapp.webapp.DB;
-
 import pl.edu.pjatk.jazapp.auth.ProfileRepository;
 
 import javax.enterprise.context.RequestScoped;
@@ -15,10 +13,10 @@ import javax.inject.Named;
 public class LoginControler {
 
     @Inject
-    ProfileRepository db;
+    private ProfileRepository db;
 
     @Inject
-    LoginRequest loginRequest;
+    private LoginRequest loginRequest;
 
     private String loginMsg;
 
