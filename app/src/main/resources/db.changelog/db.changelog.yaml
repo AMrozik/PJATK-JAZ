@@ -1,8 +1,15 @@
 databaseChangeLog:
   - changeSet:
       id: 20191118_init
-      author: Paweł Janowiak
+      author: Andrzej Mrozik
       sqlFile:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20191118_init.sql
+  - changeSet:
+      id: 20191128_zad4
+      author: Andrzej Mrozik
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191128_zad4.sql
