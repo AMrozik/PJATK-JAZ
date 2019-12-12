@@ -7,14 +7,29 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-    <title>Lista Działów</title>
+<!--    <title>Lista Dzialow</title>-->
     <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
 <h:body>
     <div id="page">
         <ui:composition template="/template/common/commonLayout.xhtml">
             <ui:define name="content">
-                       <!-- TODO:         lista wszystkich działów z linkiem do edycji            -->
+                       <!-- TODO:         lista wszystkich działów z linkiem do edycji          ]
+
+                    <div class="list-group">
+                        <ui:repeat value="#{sectionController.sectionList}" var="section">
+                            <h:link styleClass="list-group-item list-group-item-action" outcome="editSection">
+                                <f:param name="doorId" value="#{section.id}"/>
+
+                                <h:outputText  value="##{section.id} - #{section.name}"/>
+                            </h:link>
+                        </ui:repeat>
+                    </div>
+
+<!                <h:selectOneMenu value = "{}">
+<!                    <f:selectItems itemLabel="#{}branchname" var=""
+<!             </h:selectOneMenu>-->
+
             </ui:define>
         </ui:composition>
     </div>

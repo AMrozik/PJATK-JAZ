@@ -25,4 +25,15 @@ public class SectionEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public SectionEntity(String name) {
+        this.name = name;
+    }
+
+    public SectionEntity(){};
+
+    public SectionEntity(Long id, String name){
+        this.id = id;
+        this.name = name;
+    }
 }
