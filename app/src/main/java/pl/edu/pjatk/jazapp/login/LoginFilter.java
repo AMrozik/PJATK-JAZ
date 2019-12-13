@@ -10,15 +10,21 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@Named
-@RequestScoped
-//@WebFilter("*")
+//@Named
+//@RequestScoped
+@WebFilter("*")
 public class LoginFilter extends HttpFilter {
     @Inject
     private LoginRequest loginRequest;
 
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
+
+        if(true){
+            chain.doFilter(req, res);
+            return;
+        }
+
         @SuppressWarnings("rawtypes")
         HttpSession session = req.getSession(false);
         String loginURI = req.getContextPath() + "/login.xhtml";
