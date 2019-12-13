@@ -1,5 +1,9 @@
 package pl.edu.pjatk.jazapp.jpa;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pl.edu.pjatk.jazapp.auth.ProfileEntity;
+import pl.edu.pjatk.jazapp.auth.User;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +32,12 @@ public class SectionRepository {
 
         public List<SectionEntity> findAll() {
             return em.createQuery("from SectionEntity ", SectionEntity.class).getResultList();
+        }
+
+        @Transactional
+        public void addSection(Section section){
+            var addsSection = new SectionEntity(section);
+
+            em.persist(addsSection);
         }
 }

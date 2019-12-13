@@ -19,7 +19,6 @@
                     <h:outputLabel rendered="#{flash.containsKey('error-message')}"
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
-                        <h:inputHidden value="#{editSectionController.editRequest.id}" />
                         <div class="form-group">
                             <h:inputText id="door-name" styleClass="form-control" a:placeholder="name"
                                          value="#{editSectionController.editRequest.name}"/>

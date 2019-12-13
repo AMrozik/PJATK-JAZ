@@ -36,4 +36,8 @@ public class SectionEntity {
         this.id = id;
         this.name = name;
     }
+
+    public SectionEntity(Section section){
+        this.name = section.getName();
+    }
 }
