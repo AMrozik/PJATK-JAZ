@@ -1,9 +1,5 @@
 package pl.edu.pjatk.jazapp.jpa;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import pl.edu.pjatk.jazapp.auth.ProfileEntity;
-import pl.edu.pjatk.jazapp.auth.User;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

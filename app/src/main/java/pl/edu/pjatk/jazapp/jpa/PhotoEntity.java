@@ -14,4 +14,36 @@ public class PhotoEntity {
     private AuctionEntity auction;
 
     private String url;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public AuctionEntity getAuction() {
+        return auction;
+    }
+
+    public void setAuction(AuctionEntity auction) {
+        this.auction = auction;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public PhotoEntity() {
+    }
+
+    public PhotoEntity(AuctionEntity auction, String url) {
+        this.auction = auction;
+        this.url = url;
+    }
 }

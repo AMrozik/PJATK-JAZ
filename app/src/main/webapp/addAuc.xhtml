@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -15,6 +16,41 @@
         <ui:composition template="/template/common/commonLayout.xhtml">
             <ui:define name="content">
                 <!--  TODO:      formularz dodania aukcji przez użytkownika            -->
+
+                <div class="text-center">
+                    <h:outputLabel rendered="#{flash.containsKey('error-message')}"
+                                   styleClass="alert alert-danger" value="#{flash['error-message']}"/>
+                    <h:form styleClass="form-base">
+                        <h:inputHidden value="#{addAuctionRequest.id}" />
+                        <div class="form-group">
+                            <h:inputText id="door-name" styleClass="form-control" a:placeholder="Door name"
+                                         value="#{addAuctionRequest.description}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:inputText id="parameters" styleClass="form-control" a:placeholder="Floor"
+                                         value="#{addAuctionRequest.parameters}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="photos" styleClass="form-control" a:placeholder="Floor"
+                                         value="#{addAuctionRequest.photos}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="price" styleClass="form-control" a:placeholder="Floor"
+                                         value="#{addAuctionRequest.price}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="title" styleClass="form-control" a:placeholder="Floor"
+                                         value="#{addAuctionRequest.title}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputHidden id="floor" styleClass="form-control" a:placeholder="Floor"
+                                         value="#{addAuctionRequest.ownerId}"/>
+                        </div>
+                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{addAuctionController.save}"/><br/>
+                    </h:form>
+                </div>
+
             </ui:define>
         </ui:composition>
     </div>

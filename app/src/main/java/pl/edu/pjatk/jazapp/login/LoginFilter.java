@@ -20,15 +20,17 @@ public class LoginFilter extends HttpFilter {
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
 
-        if(true){
-            chain.doFilter(req, res);
-            return;
-        }
+//        if(true){
+//            chain.doFilter(req, res);
+//            return;
+//        }
 
         @SuppressWarnings("rawtypes")
         HttpSession session = req.getSession(false);
         String loginURI = req.getContextPath() + "/login.xhtml";
         String registerURI = req.getContextPath() + "/register.xhtml";
+        String addSectionURI = req.getContextPath() + "/addSection.xhtml";
+        String editSectionURI = req.getContextPath() + "/editSection.xhtml";
         String uri = req.getRequestURI();
 
         boolean loggedIn = session != null && session.getAttribute("user") != null;
@@ -36,7 +38,16 @@ public class LoginFilter extends HttpFilter {
         boolean registerRequest = req.getRequestURI().equals(registerURI);
         boolean resourceRequest = req.getRequestURI().startsWith(req.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER);
 
-        if(loggedIn && loginRequest || loggedIn && registerRequest){
+        assert session != null;
+        boolean isAdmin = session.getAttribute("admin").equals(true);
+
+        boolean addSectionRequest = req.getRequestURI().equals(addSectionURI);
+        boolean editSectionRequest = req.getRequestURI().equals(editSectionURI);
+
+        if(loggedIn && isAdmin && addSectionRequest || loggedIn && isAdmin && editSectionRequest){
+            chain.doFilter(req, res);
+        }
+        else if(loggedIn && loginRequest || loggedIn && registerRequest){
             res.sendRedirect(req.getContextPath() + "/index.xhtml");
         }
        else if (loggedIn || loginRequest || resourceRequest || registerRequest) {

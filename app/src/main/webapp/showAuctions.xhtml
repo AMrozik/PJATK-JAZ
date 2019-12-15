@@ -7,7 +7,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-    <title>Lista Działów</title>
+    <title>Lista Aukcji</title>
     <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
 <h:body>
@@ -15,6 +15,16 @@
         <ui:composition template="/template/common/commonLayout.xhtml">
             <ui:define name="content">
                 <!--   TODO:       lista wszystkich aukcji z miniaturą pierwszego zdjęcia           -->
+
+                <div class="list-group">
+                    <ui:repeat value="#{auctionController.auctionlist()}" var="auction">
+                        <div>
+                            <h3><h:outputText  value="#{auction.title}"/></h3>
+<!--                            <img src="#{auctionController.}" alt=""/>-->
+                        </div>
+                    </ui:repeat>
+                </div>
+
             </ui:define>
         </ui:composition>
     </div>

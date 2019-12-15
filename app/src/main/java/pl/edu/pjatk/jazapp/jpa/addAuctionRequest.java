@@ -1,44 +1,23 @@
 package pl.edu.pjatk.jazapp.jpa;
 
-import pl.edu.pjatk.jazapp.auth.ProfileEntity;
+import ch.qos.logback.core.joran.spi.NoAutoStart;
 
-import javax.persistence.*;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity
-@Table(name = "auction")
-public class AuctionEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+@Named
+@RequestScoped
+public class addAuctionRequest {
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
-
     private String title;
     private String description;
-
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "auction", fetch = FetchType.EAGER)
-    @OrderColumn(name = "order_by")
     private List<PhotoEntity> photos;
-
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "auction")
     private List<AuctionParameterEntity> parameters;
-
     private BigDecimal price;
-
-    @Column(name = "owner_id")
     private Long ownerId;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public CategoryEntity getCategory() {
         return category;
@@ -96,7 +75,7 @@ public class AuctionEntity {
         this.ownerId = ownerId;
     }
 
-    public AuctionEntity(CategoryEntity category, String title, String description, List<PhotoEntity> photos, List<AuctionParameterEntity> parameters, BigDecimal price, Long ownerId) {
+    public addAuctionRequest(CategoryEntity category, String title, String description, List<PhotoEntity> photos, List<AuctionParameterEntity> parameters, BigDecimal price, Long ownerId) {
         this.category = category;
         this.title = title;
         this.description = description;
@@ -106,6 +85,6 @@ public class AuctionEntity {
         this.ownerId = ownerId;
     }
 
-    public AuctionEntity() {
+    public addAuctionRequest() {
     }
 }
