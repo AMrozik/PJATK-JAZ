@@ -8,25 +8,28 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-    <title>Edytuj Dział</title>
+    <title>Lista Działów</title>
     <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
 <h:body>
     <div id="page">
         <ui:composition template="/template/common/commonLayout.xhtml">
             <ui:define name="content">
+                <!--    TODO:       formularz dodania kategorii przez administratora            -->
+
+
                 <div class="text-center">
                     <h:outputLabel rendered="#{flash.containsKey('error-message')}"
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
-                        <h:inputHidden value="#{editSectionController.editRequest.id}" />
                         <div class="form-group">
-                            <h:inputText id="section-name" styleClass="form-control" a:placeholder="name"
-                                         value="#{editSectionController.editRequest.name}"/>
+                            <h:inputText id="category-name" styleClass="form-control" a:placeholder="name"
+                                         value="#{addCategoryController.editRequest.name}"/>
                         </div>
-                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{editSectionController.edit}"/><br/>
+                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{editSectionController.add}"/><br/>
                     </h:form>
                 </div>
+
             </ui:define>
         </ui:composition>
     </div>

@@ -31,7 +31,7 @@ public class SectionRepository {
         }
 
         @Transactional
-        public List findSectionByName(String name){
+        public List<SectionEntity> findSectionByName(String name){
             return em.createQuery("from SectionEntity where name = :name", SectionEntity.class).setParameter("name", name).getResultList();
         }
 

@@ -38,4 +38,19 @@ public class CategoryEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public CategoryEntity(Long id, SectionEntity section, String name) {
+        this.id = id;
+        this.section = section;
+        this.name = name;
+    }
+
+
+    public CategoryEntity(SectionEntity section, String name) {
+        this.section = section;
+        this.name = name;
+    }
+
+    public CategoryEntity() {
+    }
 }

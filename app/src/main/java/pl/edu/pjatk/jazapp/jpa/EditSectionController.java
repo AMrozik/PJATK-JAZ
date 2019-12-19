@@ -1,7 +1,7 @@
 package pl.edu.pjatk.jazapp.jpa;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.Flash;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -34,21 +34,26 @@ public class EditSectionController {
 
     public String edit() {
         var section = editSectionRequest.toSection();
-        sectionRepository.save(section);
+        var name = section.getName();
+        if (sectionRepository.findSectionByName(name).isEmpty()){
+            sectionRepository.save(section);
+            return "sectionView.xhtml?faces-redirect=true";
+        }
 
-        return "sectionView.xhtml?faces-redirect=true";
+        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("error-message", "sekcja o takiej nazwie istnieje już w serwisie");
+        return "";
     }
 
     public String add() {
-
         String name = editSectionRequest.getName();
 
         if (sectionRepository.findSectionByName(name).isEmpty()){
             sectionRepository.save(new SectionEntity(name));
+            return "sectionView.xhtml?faces-redirect=true";
         }
-
-
-
-        return "sectionView.xhtml?faces-redirect=true";
+        else{
+            FacesContext.getCurrentInstance().getExternalContext().getFlash().put("error-message", "sekcja o takiej nazwie istnieje już w serwisie");
+            return "";
+        }
     }
 }

@@ -1,7 +1,5 @@
 package pl.edu.pjatk.jazapp.jpa;
 
-import pl.edu.pjatk.jazapp.auth.ProfileEntity;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
