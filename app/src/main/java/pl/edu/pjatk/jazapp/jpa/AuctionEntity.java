@@ -21,7 +21,7 @@ public class AuctionEntity {
     private String description;
 
     @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "auction", fetch = FetchType.EAGER)
-    @OrderColumn(name = "order_by")
+    @OrderColumn(name = "order_by") // order by w photos
     private List<PhotoEntity> photos;
 
     @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "auction")

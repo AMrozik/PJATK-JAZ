@@ -14,7 +14,7 @@ public class addSectionController {
 
     public String addSection(){
         Section section = new Section(addSectionRequest.getName());
-        sectionRepository.addSection(section);
+//        sectionRepository
 
         return "sectionView.xhtml?faces-redirect=true";
     }

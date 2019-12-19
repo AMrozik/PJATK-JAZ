@@ -17,7 +17,7 @@ create table auction(
     description varchar not null,
     price float not null,
     owner_id int not null,
-    order_by int not null,
+    --order_by int not null,
     foreign key (category_id) references category (id),
     foreign key (owner_id) references profile (id)
 );
@@ -25,6 +25,7 @@ create table auction(
 create table photo(
     id bigint not null primary key,
     auction_id int not null,
+    order_by int not null,
     url varchar not null,
     foreign key (auction_id) references auction (id)
 );

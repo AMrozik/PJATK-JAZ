@@ -1,6 +1,7 @@
 package pl.edu.pjatk.jazapp.jpa;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.Flash;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -31,9 +32,22 @@ public class EditSectionController {
         return new EditSectionRequest();
     }
 
-    public String save() {
+    public String edit() {
         var section = editSectionRequest.toSection();
         sectionRepository.save(section);
+
+        return "sectionView.xhtml?faces-redirect=true";
+    }
+
+    public String add() {
+
+        String name = editSectionRequest.getName();
+
+        if (sectionRepository.findSectionByName(name).isEmpty()){
+            sectionRepository.save(new SectionEntity(name));
+        }
+
+
 
         return "sectionView.xhtml?faces-redirect=true";
     }

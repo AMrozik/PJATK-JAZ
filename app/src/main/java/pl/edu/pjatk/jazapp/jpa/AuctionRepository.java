@@ -12,7 +12,7 @@ public class AuctionRepository {
     EntityManager em;
 
     @Transactional
-    public List findAll() {
+    public List<AuctionEntity> findAll() {
         return em.createQuery("from AuctionEntity", AuctionEntity.class).getResultList();
     }
 

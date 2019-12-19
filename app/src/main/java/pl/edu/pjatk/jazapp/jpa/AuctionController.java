@@ -11,7 +11,7 @@ public class AuctionController {
     @Inject
     AuctionRepository auctionRepository;
 
-    public List auctionlist() {
+    public List<AuctionEntity> auctionlist() {
         return auctionRepository.findAll();
     }
 }

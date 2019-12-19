@@ -31,9 +31,14 @@ public class SectionRepository {
         }
 
         @Transactional
-        public void addSection(Section section){
-            var addsSection = new SectionEntity(section);
-
-            em.persist(addsSection);
+        public List findSectionByName(String name){
+            return em.createQuery("from SectionEntity where name = :name", SectionEntity.class).setParameter("name", name).getResultList();
         }
+
+//        @Transactional
+//        public void addSection(Section section){
+//            var addsSection = new SectionEntity(section);
+//
+//            em.persist(addsSection);
+//        }
 }
