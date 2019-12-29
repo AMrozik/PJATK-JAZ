@@ -23,10 +23,13 @@
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
                         <div class="form-group">
+                            <h:selectOneMenu value="#{addCategoryController.getAddCategoryRequest().sectionId}">
+                                <f:selectItems var="section" value="#{sectionController.sectionList()}" itemLabel="#{section.name}" itemValue="#{section.id}"/>
+                            </h:selectOneMenu>
                             <h:inputText id="category-name" styleClass="form-control" a:placeholder="name"
-                                         value="#{addCategoryController.editRequest.name}"/>
+                                         value="#{addCategoryController.getAddCategoryRequest().name}"/>
                         </div>
-                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{editSectionController.add}"/><br/>
+                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{addCategoryController.add}"/><br/>
                     </h:form>
                 </div>
 

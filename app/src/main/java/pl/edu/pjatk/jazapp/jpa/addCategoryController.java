@@ -25,6 +25,13 @@ public class addCategoryController {
         return editCategoryRequest;
     }
 
+    public EditCategoryRequest getAddCategoryRequest(){
+        if (editCategoryRequest == null) {
+            editCategoryRequest = new EditCategoryRequest();
+        }
+        return editCategoryRequest;
+    }
+
     private EditCategoryRequest createEditCategoryRequest() {
         if (paramRetriever.contains("sectionId")) {
             var categoryId = paramRetriever.getLong("categoryId");
@@ -42,15 +49,13 @@ public class addCategoryController {
     }
 
     public String add() {
-
         String name = editCategoryRequest.getName();
-        SectionEntity section = editCategoryRequest.getSection();
+        Long sectionId = editCategoryRequest.getSectionId();
+        var section = sectionRepository.findSectionById(sectionId).orElseThrow();
 
         if (categoryRepository.findCategoryByName(name).isEmpty()){
             categoryRepository.save(new CategoryEntity(section, name));
         }
-
-
 
         return "sectionView.xhtml?faces-redirect=true";
     }

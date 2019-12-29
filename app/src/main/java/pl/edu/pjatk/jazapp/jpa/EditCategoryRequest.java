@@ -5,6 +5,7 @@ public class EditCategoryRequest {
     private Long id;
     private String name;
     private SectionEntity section;
+    private Long sectionId;
 
 
     public EditCategoryRequest(CategoryEntity category) {
@@ -44,5 +45,13 @@ public class EditCategoryRequest {
 
     public CategoryEntity toCategory(){
         return new CategoryEntity(id, section, name);
+    }
+
+    public Long getSectionId() {
+        return sectionId;
+    }
+
+    public void setSectionId(Long sectionId) {
+        this.sectionId = sectionId;
     }
 }

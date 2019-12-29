@@ -48,7 +48,8 @@ public class EditSectionController {
         String name = editSectionRequest.getName();
 
         if (sectionRepository.findSectionByName(name).isEmpty()){
-            sectionRepository.save(new SectionEntity(name));
+            SectionEntity section = new SectionEntity(name);
+            sectionRepository.save(section);
             return "sectionView.xhtml?faces-redirect=true";
         }
         else{

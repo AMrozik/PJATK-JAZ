@@ -22,10 +22,11 @@
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
                         <div class="form-group">
-                            <h:inputText id="door-name" styleClass="form-control" a:placeholder="name"
-                                         value="#{editSectionController.editRequest.name}"/>
+                            <h:inputHidden
+                            <h:inputText id="category-name" styleClass="form-control" a:placeholder="name"
+                                         value="#{addCategoryController.editRequest.name}"/>
                         </div>
-                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{editSectionController.add}"/><br/>
+                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{addCategoryController.edit()}"/><br/>
                     </h:form>
                 </div>
 
