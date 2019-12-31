@@ -20,10 +20,10 @@ public class LoginFilter extends HttpFilter {
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
 
-        if(true){
-            chain.doFilter(req, res);
-            return;
-        }
+//        if(true){
+//            chain.doFilter(req, res);
+//            return;
+//        }
 
         @SuppressWarnings("rawtypes")
         HttpSession session = req.getSession(false);
