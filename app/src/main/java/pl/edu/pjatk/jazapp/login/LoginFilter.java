@@ -20,10 +20,10 @@ public class LoginFilter extends HttpFilter {
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
 
-//        if(true){
-//            chain.doFilter(req, res);
-//            return;
-//        }
+        if(true){
+            chain.doFilter(req, res);
+            return;
+        }
 
         @SuppressWarnings("rawtypes")
         HttpSession session = req.getSession(false);
@@ -37,9 +37,6 @@ public class LoginFilter extends HttpFilter {
         boolean loginRequest = req.getRequestURI().equals(loginURI);
         boolean registerRequest = req.getRequestURI().equals(registerURI);
         boolean resourceRequest = req.getRequestURI().startsWith(req.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER);
-
-        assert session != null;
-        boolean isAdmin = session.getAttribute("admin").equals(true);
 
 //        boolean addSectionRequest = req.getRequestURI().equals(addSectionURI);
 //        boolean editSectionRequest = req.getRequestURI().equals(editSectionURI);

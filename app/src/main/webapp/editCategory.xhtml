@@ -22,7 +22,10 @@
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
                         <div class="form-group">
-                            <h:inputHidden
+                            <h:inputHidden value="#{addCategoryController.editRequest.id}" />
+                            <h:selectOneMenu>
+
+                            </h:selectOneMenu>
                             <h:inputText id="category-name" styleClass="form-control" a:placeholder="name"
                                          value="#{addCategoryController.editRequest.name}"/>
                         </div>
