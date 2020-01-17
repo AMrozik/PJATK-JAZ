@@ -7,6 +7,13 @@ databaseChangeLog:
         splitStatements: false
         path: 20191118_init.sql
   - changeSet:
+      id: 20200116_alter_profile
+      author: Andrzej Mrozik
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200116_alter_profile.sql
+  - changeSet:
       id: 20191128_zad4
       author: Andrzej Mrozik
       sqlFile:
