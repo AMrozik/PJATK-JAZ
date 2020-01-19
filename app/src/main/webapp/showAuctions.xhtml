@@ -18,14 +18,14 @@
                 <div class="list-group">
                     <ui:repeat value="#{auctionController.auctionlist()}" var="auction">
                         <div class="auction-box">
-                            <h4><h:outputText value="##{auction.id}"/> </h4>
-                            <h3><h:outputText  value="#{auction.title}"/></h3>
+                            <h4><h:outputText value="##{auction.id}"/></h4>
+                            <h3><h:outputText value="#{auction.title}"/></h3>
                             <h:outputText value="#{auction.category.name}"/>
                             <img src="#{auction.photos.get(0).url}" alt="" width="128" height="128"/>
-<!--                            <div style="float: left">-->
+                            <!--                            <div style="float: left">-->
                             <h:outputText value="#{auction.description}"/><br/>
                             <h:outputText value="#{auction.price}"/>
-<!--                            </div>-->
+                            <!--                            </div>-->
                         </div>
                     </ui:repeat>
                 </div>

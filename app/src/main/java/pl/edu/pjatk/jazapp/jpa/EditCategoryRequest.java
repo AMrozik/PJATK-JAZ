@@ -9,7 +9,9 @@ public class EditCategoryRequest {
 
 
     public EditCategoryRequest(CategoryEntity category) {
+        this.id = category.getId();
         this.name = category.getName();
+        this.section = category.getSection();
     }
 
     public String getName() {
@@ -43,7 +45,7 @@ public class EditCategoryRequest {
     public EditCategoryRequest() {
     }
 
-    public CategoryEntity toCategory(){
+    public CategoryEntity toCategory() {
         return new CategoryEntity(id, section, name);
     }
 

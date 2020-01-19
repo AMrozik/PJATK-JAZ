@@ -12,6 +12,7 @@ public class SectionRepository {
         @PersistenceContext
         EntityManager em;
 
+        @Transactional
         public Optional<SectionEntity> findSectionById(Long sectionId) {
             var section = em.find(SectionEntity.class, sectionId);
             return Optional.ofNullable(section);
@@ -34,11 +35,4 @@ public class SectionRepository {
         public List<SectionEntity> findSectionByName(String name){
             return em.createQuery("from SectionEntity where name = :name", SectionEntity.class).setParameter("name", name).getResultList();
         }
-
-//        @Transactional
-//        public void addSection(Section section){
-//            var addsSection = new SectionEntity(section);
-//
-//            em.persist(addsSection);
-//        }
 }

@@ -3,6 +3,7 @@ package pl.edu.pjatk.jazapp.jpa;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.Optional;
 
 @Named
 @RequestScoped
@@ -33,7 +34,7 @@ public class addCategoryController {
     }
 
     private EditCategoryRequest createEditCategoryRequest() {
-        if (paramRetriever.contains("sectionId")) {
+        if (paramRetriever.contains("categoryId")) {
             var categoryId = paramRetriever.getLong("categoryId");
             var category = categoryRepository.findCategoryById(categoryId).orElseThrow();
             return new EditCategoryRequest(category);
@@ -43,9 +44,11 @@ public class addCategoryController {
 
     public String edit() {
         var category = editCategoryRequest.toCategory();
+        SectionEntity section = sectionRepository.findSectionById(editCategoryRequest.getSectionId()).get();
+        category.setSection(section);
         categoryRepository.save(category);
 
-        return "sectionView.xhtml?faces-redirect=true";
+        return "showCategories.xhtml?faces-redirect=true";
     }
 
     public String add() {
@@ -57,6 +60,6 @@ public class addCategoryController {
             categoryRepository.save(new CategoryEntity(section, name));
         }
 
-        return "sectionView.xhtml?faces-redirect=true";
+        return "showCategories.xhtml?faces-redirect=true";
     }
 }

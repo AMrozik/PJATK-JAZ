@@ -35,7 +35,7 @@ public class EditSectionController {
     public String edit() {
         var section = editSectionRequest.toSection();
         var name = section.getName();
-        if (sectionRepository.findSectionByName(name).isEmpty()){
+        if (sectionRepository.findSectionByName(name).isEmpty()) {
             sectionRepository.save(section);
             return "sectionView.xhtml?faces-redirect=true";
         }
@@ -47,12 +47,11 @@ public class EditSectionController {
     public String add() {
         String name = editSectionRequest.getName();
 
-        if (sectionRepository.findSectionByName(name).isEmpty()){
+        if (sectionRepository.findSectionByName(name).isEmpty()) {
             SectionEntity section = new SectionEntity(name);
             sectionRepository.save(section);
             return "sectionView.xhtml?faces-redirect=true";
-        }
-        else{
+        } else {
             FacesContext.getCurrentInstance().getExternalContext().getFlash().put("error-message", "sekcja o takiej nazwie istnieje już w serwisie");
             return "";
         }

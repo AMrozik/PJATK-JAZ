@@ -20,6 +20,8 @@ public class LoginFilter extends HttpFilter {
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
 
+        // TODO: naprawic filtr
+
         if(true){
             chain.doFilter(req, res);
             return;
