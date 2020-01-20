@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 public class AuctionRepository {
@@ -17,8 +18,9 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public AuctionEntity findById(Long id){
-        return em.createQuery("from AuctionEntity where id = :id", AuctionEntity.class).setParameter("id", id).getSingleResult();
+    public Optional<AuctionEntity> findAuctionById(Long auctionId) {
+        var auction = em.find(AuctionEntity.class, auctionId);
+        return Optional.ofNullable(auction);
     }
 
     @Transactional

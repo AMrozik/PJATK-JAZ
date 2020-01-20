@@ -26,7 +26,7 @@ public class addCategoryController {
         return editCategoryRequest;
     }
 
-    public EditCategoryRequest getAddCategoryRequest(){
+    public EditCategoryRequest getAddCategoryRequest() {
         if (editCategoryRequest == null) {
             editCategoryRequest = new EditCategoryRequest();
         }
@@ -56,7 +56,7 @@ public class addCategoryController {
         Long sectionId = editCategoryRequest.getSectionId();
         var section = sectionRepository.findSectionById(sectionId).orElseThrow();
 
-        if (categoryRepository.findCategoryByName(name).isEmpty()){
+        if (categoryRepository.findCategoryByName(name).isEmpty()) {
             categoryRepository.save(new CategoryEntity(section, name));
         }
 
