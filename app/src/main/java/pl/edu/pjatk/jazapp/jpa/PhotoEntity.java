@@ -42,8 +42,7 @@ public class PhotoEntity {
     public PhotoEntity() {
     }
 
-    public PhotoEntity(AuctionEntity auction, String url) {
-        this.auction = auction;
+    public PhotoEntity(String url) {
         this.url = url;
     }
 }

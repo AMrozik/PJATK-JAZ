@@ -22,7 +22,7 @@
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
 
-                        <h:selectOneMenu>
+                        <h:selectOneMenu value="#{addAuctionController.addAuctionRequest.categoryId}">
                             <f:selectItems value="#{categoryController.CategoryList()}"
                                            var="category"
                                            itemLabel="#{category.name}"
@@ -31,37 +31,90 @@
 
                         <div class="form-group">
                             <h:inputText id="title" styleClass="form-control" a:placeholder="title"
-                                         value="#{addAuctionController.editAuctionRequest.title}"/>
+                                         value="#{addAuctionController.addAuctionRequest.title}"/>
                         </div>
 
                         <div class="form-group">
                             <h:inputText id="description" styleClass="form-control" a:placeholder="description"
-                                         value="#{addAuctionController.editAuctionRequest.description}"/>
+                                         value="#{addAuctionController.addAuctionRequest.description}"/>
                         </div>
 
                         <div class="form-group">
                             <h:inputText id="price" styleClass="form-control" a:placeholder="price"
-                                         value="#{addAuctionController.editAuctionRequest.price}"/>
+                                         value="#{addAuctionController.addAuctionRequest.price}"/>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="form-group">
+                            <h:inputText id="parameter0" styleClass="form-control" a:placeholder="parameters"
+                                value="#{addAuctionController.addAuctionRequest.parameter0}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="parameter0Value" styleClass="form-control" a:placeholder="parameters"
+                                         value="#{addAuctionController.addAuctionRequest.paramValue0}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:inputText id="parameter1" styleClass="form-control" a:placeholder="parameters"
+                                         value="#{addAuctionController.addAuctionRequest.parameter1}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="parameter1Value" styleClass="form-control" a:placeholder="parameters"
+                                         value="#{addAuctionController.addAuctionRequest.paramValue1}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:inputText id="parameter2" styleClass="form-control" a:placeholder="parameters"
+                                         value="#{addAuctionController.addAuctionRequest.parameter2}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="parameter2Value" styleClass="form-control" a:placeholder="parameters"
+                                         value="#{addAuctionController.addAuctionRequest.paramValue2}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:inputText id="parameter3" styleClass="form-control" a:placeholder="parameters"
+                                         value="#{addAuctionController.addAuctionRequest.parameter3}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="parameter3Value" styleClass="form-control" a:placeholder="parameters"
+                                         value="#{addAuctionController.addAuctionRequest.paramValue3}"/>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="form-group">
+                            <h:inputText id="photos0" styleClass="form-control" a:placeholder="photos"
+                                value="#{addAuctionController.addAuctionRequest.photo0}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="photos1" styleClass="form-control" a:placeholder="photos"
+                                         value="#{addAuctionController.addAuctionRequest.photo1}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="photos2" styleClass="form-control" a:placeholder="photos"
+                                         value="#{addAuctionController.addAuctionRequest.photo2}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="photos3" styleClass="form-control" a:placeholder="photos"
+                                         value="#{addAuctionController.addAuctionRequest.photo3}"/>
                         </div>
 
 
                         <div class="form-group">
-                            <h:inputText id="parameters" styleClass="form-control" a:placeholder="parameters"
-                                         value="#{addAuctionController.editAuctionRequest.parameters}"/>
+                            <h:inputHidden id="owner_id" styleClass="form-control" a:placeholder="owner_id"
+                                         value="#{addAuctionController.addAuctionRequest.owner_id}"/>
                         </div>
-
-
-                        <div class="form-group">
-                            <h:inputText id="photos" styleClass="form-control" a:placeholder="photos"
-                                         value="#{addAuctionController.editAuctionRequest.photos}"/>
-                        </div>
-
-
-                        <div class="form-group">
-                            <h:inputHidden id="floor" styleClass="form-control" a:placeholder="Floor"
-                                         value="#{addAuctionController.editAuctionRequest.owner_id}"/>
-                        </div>
-                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{addAuctionController.save}"/><br/>
+                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{addAuctionController.add()}"/><br/>
                     </h:form>
                 </div>
 

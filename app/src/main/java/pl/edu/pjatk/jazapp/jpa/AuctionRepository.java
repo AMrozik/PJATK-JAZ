@@ -24,7 +24,16 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public List<AuctionEntity> findByOwner(Long ownerId){
+    public List<AuctionEntity> findByOwner(Long ownerId) {
         return em.createQuery("from AuctionEntity where ownerId = :ownerId", AuctionEntity.class).setParameter("ownerId", ownerId).getResultList();
+    }
+
+    @Transactional
+    public void save(AuctionEntity auction) {
+        if (auction.getId() == null) {
+            em.persist(auction);
+        } else {
+            em.merge(auction);
+        }
     }
 }

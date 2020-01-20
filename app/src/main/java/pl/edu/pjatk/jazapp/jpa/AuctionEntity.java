@@ -18,11 +18,11 @@ public class AuctionEntity {
     private String title;
     private String description;
 
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "auction", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "auction", fetch = FetchType.EAGER)
     @OrderColumn(name = "order_by") // order by w photos
     private List<PhotoEntity> photos;
 
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy = "auction")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "auction", fetch = FetchType.EAGER)
     private List<AuctionParameterEntity> parameters;
 
     private BigDecimal price;
@@ -94,15 +94,41 @@ public class AuctionEntity {
         this.ownerId = ownerId;
     }
 
+
     public AuctionEntity(CategoryEntity category, String title, String description, List<PhotoEntity> photos, List<AuctionParameterEntity> parameters, BigDecimal price, Long ownerId) {
         this.category = category;
         this.title = title;
         this.description = description;
         this.photos = photos;
+        for (PhotoEntity photo: photos) {
+            photo.setAuction(this);
+        }
         this.parameters = parameters;
+        for (AuctionParameterEntity param: parameters) {
+            param.setAuction(this);
+        }
         this.price = price;
         this.ownerId = ownerId;
     }
+
+    public AuctionEntity(Long id, CategoryEntity category, String title, String description, List<PhotoEntity> photos, List<AuctionParameterEntity> parameters, BigDecimal price, Long ownerId) {
+        this.id = id;
+        this.category = category;
+        this.title = title;
+        this.description = description;
+        this.photos = photos;
+        for (PhotoEntity photo: photos) {
+            photo.setAuction(this);
+        }
+        this.parameters = parameters;
+        for (AuctionParameterEntity param: parameters) {
+            param.setAuction(this);
+        }
+        this.price = price;
+        this.ownerId = ownerId;
+    }
+
+
 
     public AuctionEntity() {
     }
