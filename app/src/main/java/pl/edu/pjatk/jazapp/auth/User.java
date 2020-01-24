@@ -7,14 +7,20 @@ public class User {
     private final String password;
     private final String email;
     private final String  birthDate;
+    private final boolean admin;
 
-    public User(String firstName, String lastName, String username, String password, String email, String birthDate) {
+    public User(String firstName, String lastName, String username, String password, String email, String birthDate, boolean admin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
         this.email = email;
         this.birthDate = birthDate;
+        this.admin = admin;
+    }
+
+    public boolean isAdmin() {
+        return admin;
     }
 
     public String getFirstName() {

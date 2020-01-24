@@ -13,6 +13,7 @@ public class RegisterRequest {
     private String username;
     private String email;
     private String password;
+    private boolean admin = false;
 
     public String getBirth() {
         return birth;
@@ -62,4 +63,11 @@ public class RegisterRequest {
         this.username = username;
     }
 
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 }

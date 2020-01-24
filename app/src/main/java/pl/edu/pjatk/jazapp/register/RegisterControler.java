@@ -26,7 +26,7 @@ public class RegisterControler {
     }
 
     public String register(){
-        User user = new User(register.getName(), register.getLastname(), register.getUsername(), register.getPassword(), register.getEmail(), register.getBirth());
+        User user = new User(register.getName(), register.getLastname(), register.getUsername(), register.getPassword(), register.getEmail(), register.getBirth(), register.isAdmin());
         if (!db.userExists(user)){
             db.addUser(user);
             registerMsg = "Twoje konto zostało poprawnie założone, przejdź do strony logowania";

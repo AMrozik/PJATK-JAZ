@@ -1,0 +1,1 @@
+SELECT setval('hibernate_sequence',(select count(*) from profile), true);

@@ -20,3 +20,17 @@ databaseChangeLog:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20191128_zad4.sql
+  - changeSet:
+      id: 20200124_add_super_user
+      author: Andrzej Mrozik
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200124_add_super_user.sql
+  - changeSet:
+      id: 20200124_hibernate_sequence_fix
+      author: Andrzej Mrozik
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200124_hibernate_sequence_fix.sql

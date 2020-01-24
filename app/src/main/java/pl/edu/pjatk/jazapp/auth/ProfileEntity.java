@@ -15,6 +15,7 @@ public class ProfileEntity {
     private String lastName;
     private String email;
     private String birthDate;
+    private boolean admin;
 
     public ProfileEntity(User user) {
         this.username = user.getUsername();
@@ -23,6 +24,7 @@ public class ProfileEntity {
         this.lastName = user.getLastName();
         this.email = user.getEmail();
         this.birthDate = user.getBirthDate();
+        this.admin = user.isAdmin();
     }
 
     public ProfileEntity(User user, String encodedPassword) {
@@ -32,6 +34,7 @@ public class ProfileEntity {
         this.lastName = user.getLastName();
         this.email = user.getEmail();
         this.birthDate = user.getBirthDate();
+        this.admin = user.isAdmin();
     }
 
     public ProfileEntity( ){};
@@ -98,5 +101,13 @@ public class ProfileEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }
