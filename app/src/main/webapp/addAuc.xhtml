@@ -51,38 +51,38 @@
 
 
                         <div class="form-group">
-                            <h:inputText id="parameter0" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter0" styleClass="form-control" a:placeholder="name"
                                 value="#{addAuctionController.addAuctionRequest.parameter0}"/>
                         </div>
                         <div class="form-group">
-                            <h:inputText id="parameter0Value" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter0Value" styleClass="form-control" a:placeholder="value"
                                          value="#{addAuctionController.addAuctionRequest.paramValue0}"/>
                         </div>
 
                         <div class="form-group">
-                            <h:inputText id="parameter1" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter1" styleClass="form-control" a:placeholder="name"
                                          value="#{addAuctionController.addAuctionRequest.parameter1}"/>
                         </div>
                         <div class="form-group">
-                            <h:inputText id="parameter1Value" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter1Value" styleClass="form-control" a:placeholder="value"
                                          value="#{addAuctionController.addAuctionRequest.paramValue1}"/>
                         </div>
 
                         <div class="form-group">
-                            <h:inputText id="parameter2" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter2" styleClass="form-control" a:placeholder="name"
                                          value="#{addAuctionController.addAuctionRequest.parameter2}"/>
                         </div>
                         <div class="form-group">
-                            <h:inputText id="parameter2Value" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter2Value" styleClass="form-control" a:placeholder="value"
                                          value="#{addAuctionController.addAuctionRequest.paramValue2}"/>
                         </div>
 
                         <div class="form-group">
-                            <h:inputText id="parameter3" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter3" styleClass="form-control" a:placeholder="name"
                                          value="#{addAuctionController.addAuctionRequest.parameter3}"/>
                         </div>
                         <div class="form-group">
-                            <h:inputText id="parameter3Value" styleClass="form-control" a:placeholder="parameters"
+                            <h:inputText id="parameter3Value" styleClass="form-control" a:placeholder="value"
                                          value="#{addAuctionController.addAuctionRequest.paramValue3}"/>
                         </div>
 
@@ -93,9 +93,10 @@
 
 
                         <div class="form-group">
-                            <h:inputText id="photos0" styleClass="form-control" a:placeholder="photos"
+                            <h:inputText id="photos0" styleClass="form-control" a:placeholder="photos" required="true" requiredMessage="wprowadz zdjecie"
                                 value="#{addAuctionController.addAuctionRequest.photo0}"/>
                         </div>
+                        <h:message for="photos0" style="color:red"/><br/>
                         <div class="form-group">
                             <h:inputText id="photos1" styleClass="form-control" a:placeholder="photos"
                                          value="#{addAuctionController.addAuctionRequest.photo1}"/>

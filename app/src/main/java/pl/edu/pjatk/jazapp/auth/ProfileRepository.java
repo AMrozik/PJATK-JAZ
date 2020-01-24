@@ -13,7 +13,7 @@ public class ProfileRepository {
     private EntityManager em;
 
     @Transactional
-    public void addUser(User user){
+    public void addUser(User user) {
         var passwordEncoder = new BCryptPasswordEncoder();
         var profile = new ProfileEntity(user, passwordEncoder.encode(user.getPassword()));
 
@@ -21,7 +21,7 @@ public class ProfileRepository {
     }
 
     @Transactional
-    public boolean userExists(User user){
+    public boolean userExists(User user) {
         var foundUSer = em.createQuery("from ProfileEntity where username = :username", ProfileEntity.class)
                 .setParameter("username", user.getUsername())
                 .getResultList();
@@ -30,7 +30,7 @@ public class ProfileRepository {
     }
 
     @Transactional
-    public boolean correctCredentials(String username, String password){
+    public boolean correctCredentials(String username, String password) {
         var passwordEncoder = new BCryptPasswordEncoder();
         var queryResult = em.createQuery("from ProfileEntity where username = :username", ProfileEntity.class)
                 .setParameter("username", username).getResultList();
@@ -39,4 +39,12 @@ public class ProfileRepository {
 
         return passwordEncoder.matches(password, queryResult.get(0).getPassword());
     }
+
+    @Transactional
+    public Long getUserId(String user) {
+        var queryResult = em.createQuery("from ProfileEntity where username = :username", ProfileEntity.class)
+                .setParameter("username", user).getResultList();
+        return queryResult.get(0).getId();
+    }
+
 }

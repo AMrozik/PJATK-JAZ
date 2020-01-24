@@ -15,6 +15,16 @@ public class PhotoEntity {
 
     private String url;
 
+    private int order_by;
+
+    public int getOrder_by() {
+        return order_by;
+    }
+
+    public void setOrder_by(int order_by) {
+        this.order_by = order_by;
+    }
+
     public Long getId() {
         return id;
     }
