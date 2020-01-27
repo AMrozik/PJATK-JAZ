@@ -37,7 +37,7 @@ public class EditSectionController {
         var name = section.getName();
         if (sectionRepository.findSectionByName(name).isEmpty()) {
             sectionRepository.save(section);
-            return "sectionView.xhtml?faces-redirect=true";
+            return "admin/sectionView.xhtml?faces-redirect=true";
         }
 
         FacesContext.getCurrentInstance().getExternalContext().getFlash().put("error-message", "sekcja o takiej nazwie istnieje już w serwisie");
@@ -50,7 +50,7 @@ public class EditSectionController {
         if (sectionRepository.findSectionByName(name).isEmpty()) {
             SectionEntity section = new SectionEntity(name);
             sectionRepository.save(section);
-            return "sectionView.xhtml?faces-redirect=true";
+            return "admin/sectionView.xhtml?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().getExternalContext().getFlash().put("error-message", "sekcja o takiej nazwie istnieje już w serwisie");
             return "";

@@ -16,6 +16,6 @@ public class addSectionController {
         Section section = new Section(addSectionRequest.getName());
 //        sectionRepository
 
-        return "sectionView.xhtml?faces-redirect=true";
+        return "admin/sectionView.xhtml?faces-redirect=true";
     }
 }

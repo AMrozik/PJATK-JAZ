@@ -43,6 +43,9 @@ public class LoginControler {
 
         if (db.correctCredentials(username, password)) {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
+            boolean isAdmin = db.isAdmin(username);
+            if (isAdmin)
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("isAdmin", isAdmin);
             return "index?faces-redirect=true";
         } else {
             loginMsg = "Niewłaściwy login lub hasło";

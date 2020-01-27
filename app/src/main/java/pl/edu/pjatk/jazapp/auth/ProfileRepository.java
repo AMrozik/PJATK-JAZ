@@ -47,4 +47,10 @@ public class ProfileRepository {
         return queryResult.get(0).getId();
     }
 
+    @Transactional
+    public boolean isAdmin(String user) {
+        var queryResult = em.createQuery("from ProfileEntity where username = :username", ProfileEntity.class)
+                .setParameter("username", user).getResultList();
+        return queryResult.get(0).isAdmin();
+    }
 }

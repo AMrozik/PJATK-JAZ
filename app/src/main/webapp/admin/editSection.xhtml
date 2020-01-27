@@ -13,18 +13,19 @@
 </h:head>
 <h:body>
     <div id="page">
-        <ui:composition template="/template/common/commonLayout.xhtml">
+        <ui:composition template="/template/common/adminLayout.xhtml">
             <ui:define name="content">
                 <div class="text-center">
                     <h:outputLabel rendered="#{flash.containsKey('error-message')}"
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
+                        <h:inputHidden value="#{editSectionController.editRequest.id}"/>
                         <div class="form-group">
                             <h:inputText id="section-name" styleClass="form-control" a:placeholder="name"
                                          value="#{editSectionController.editRequest.name}"/>
                         </div>
                         <h:commandButton styleClass="btn btn-primary" value="Save"
-                                         action="#{editSectionController.add}"/><br/>
+                                         action="#{editSectionController.edit}"/><br/>
                     </h:form>
                 </div>
             </ui:define>
