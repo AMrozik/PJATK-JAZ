@@ -1,7 +1,5 @@
 package pl.edu.pjatk.jazapp.jpa;
 
-import ch.qos.logback.core.joran.spi.NoAutoStart;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import java.math.BigDecimal;

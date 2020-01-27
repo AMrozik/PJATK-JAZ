@@ -11,20 +11,31 @@
     <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
 <h:body>
-        <ui:composition template="../template/common/adminLayout.xhtml">
-            <ui:define name="content">
+    <ui:composition template="../template/common/adminLayout.xhtml">
+        <ui:define name="content">
 
-                    <div class="list-group">
-                        <ui:repeat value="#{sectionController.sectionList()}" var="section">
-                            <h:link styleClass="list-group-item list-group-item-action" outcome="editSection">
-                                <f:param name="sectionId" value="#{section.id}"/>
+            <div class="list-group">
+                <ui:repeat value="#{sectionController.sectionList()}" var="section">
+                    <h:link styleClass="list-group-item list-group-item-action" outcome="editSection">
+                        <f:param name="sectionId" value="#{section.id}"/>
 
-                                <h:outputText  value="##{section.id} - #{section.name}"/><br/>
-                            </h:link>
-                        </ui:repeat>
-                    </div>
+                        <h:outputText value="##{section.id} - #{section.name}"/><br/>
+                    </h:link>
+                </ui:repeat>
+            </div>
 
-            </ui:define>
-        </ui:composition>
+            <p>
+                <h:link styleClass="admin-options" outcome="addSection">
+                    <h:outputText value="dodaj sekcje" style="color: darkmagenta"/><br/>
+                </h:link>
+            </p>
+
+            <p>
+                <h:link styleClass="admin-options" outcome="/index.xhtml">
+                    <h:outputText value="Strona Główna" style="color: lime"/><br/>
+                </h:link>
+            </p>
+        </ui:define>
+    </ui:composition>
 </h:body>
 </html>

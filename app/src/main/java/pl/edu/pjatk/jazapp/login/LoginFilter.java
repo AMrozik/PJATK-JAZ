@@ -1,17 +1,13 @@
 package pl.edu.pjatk.jazapp.login;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.ResourceHandler;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-//@Named
-//@RequestScoped
 @WebFilter("*")
 public class LoginFilter extends HttpFilter {
     @Inject
@@ -19,13 +15,6 @@ public class LoginFilter extends HttpFilter {
 
     @Override
     public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws ServletException, IOException {
-
-        // TODO: naprawic filtr
-
-//        if(true){
-//            chain.doFilter(req, res);
-//            return;
-//        }
 
         @SuppressWarnings("rawtypes")
         HttpSession session = req.getSession(false);
@@ -40,7 +29,6 @@ public class LoginFilter extends HttpFilter {
         String showCategoriesURI = req.getContextPath() + "/admin/showCategories.xhtml";
         String addCategoryURI = req.getContextPath() + "/admin/addCategory.xhtml";
         String editCategoryURI = req.getContextPath() + "/admin/editCategory.xhtml";
-
 
         String uri = req.getRequestURI();
 
@@ -85,70 +73,3 @@ public class LoginFilter extends HttpFilter {
         }
     }
 }
-
-
-//    @Override
-//    protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-//
-//        if (isUserLogged(req) && isSiteForNotLoggedIn(req)){
-//            res.sendRedirect(req.getContextPath() + "/index.xhtml");
-//        }
-//
-//
-//        if (isResourceReq(req) || isSiteAdminAllowed(req) && isUserLogged(req) && isAdmin(req)) {
-//            chain.doFilter(req, res);
-//        }
-//        else if (isResourceReq(req) || isSiteAllowedForLoggedIn(req) || isUserLogged(req)) {
-//            chain.doFilter(req, res);
-//        }
-//        else if(isResourceReq(req) || isSiteAllowed(req)){
-//            chain.doFilter(req, res);
-//        }
-//        else {
-//            res.sendRedirect(req.getContextPath() + "/login.xhtml");
-//        }
-//    }
-//
-//    private boolean isUserLogged(HttpServletRequest req) {
-//        var session = req.getSession(false);
-//        return session != null && session.getAttribute("username") != null;
-//    }
-//
-//    private boolean isAdmin(HttpServletRequest req) {
-//        var session = req.getSession(false);
-//        return session != null && session.getAttribute("isAdmin") != null;
-//    }
-//
-//    private boolean isSiteAllowed(HttpServletRequest req) {
-//        return req.getRequestURI().equals(req.getContextPath() + "/login.xhtml") ||
-//                req.getRequestURI().equals(req.getContextPath() + "/register.xhtml") ||
-//                req.getRequestURI().equals(req.getContextPath() + "/showAuctions.xhtml");
-////                req.getRequestURI().contains("samples") ||
-////                // ONLY FOR TESTING
-////                req.getRequestURI().contains("api") ||
-////                req.getRequestURI().contains("admin");
-////                // ONLY FOR TESTING
-//    }
-//
-//    private boolean isSiteForNotLoggedIn(HttpServletRequest req){
-//        return req.getRequestURI().equals(req.getContextPath() + "/login.xhtml") ||
-//                req.getRequestURI().equals(req.getContextPath() + "/register.xhtml");
-//    }
-//
-//    private boolean isSiteAdminAllowed(HttpServletRequest req) {
-//        return req.getRequestURI().contains("admin");
-//    }
-//
-//    private boolean isSiteAllowedForLoggedIn(HttpServletRequest req) {
-//        return req.getRequestURI().equals(req.getContextPath() + "/showAuctions.xhtml") ||
-//                req.getRequestURI().equals(req.getContextPath() + "/addAuc.xhtml") ||
-//                req.getRequestURI().equals(req.getContextPath() + "/index.xhtml");
-//
-//    }
-//
-//    private boolean isResourceReq(HttpServletRequest req) {
-//        return req.getRequestURI().startsWith(
-//                req.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER + "/");
-//    }
-//
-//}

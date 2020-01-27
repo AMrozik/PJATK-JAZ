@@ -35,12 +35,4 @@ public class CategoryRepository {
     public List<CategoryEntity> findCategoryByName(String name){
         return em.createQuery("from CategoryEntity where name = :name", CategoryEntity.class).setParameter("name", name).getResultList();
     }
-
-//        @Transactional
-//        public void addSection(Section section){
-//            var addsSection = new SectionEntity(section);
-//
-//            em.persist(addsSection);
-//        }
-
 }

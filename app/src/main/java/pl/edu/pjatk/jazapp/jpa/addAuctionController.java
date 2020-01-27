@@ -77,12 +77,6 @@ public class addAuctionController {
 
         Long ownerId = profileRepository.getUserId(owner);
 
-
-
-
-//        Long ownerId = paramRetriever.getLong("ownerId");
-
-
         AuctionEntity auction = new AuctionEntity(category, title, description, photos, parameters, price, ownerId);
 
         auctionRepository.save(auction);

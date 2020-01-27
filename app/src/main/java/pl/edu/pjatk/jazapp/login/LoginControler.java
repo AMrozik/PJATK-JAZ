@@ -32,15 +32,6 @@ public class LoginControler {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
 
-
-        // that was bad idea
-
-//        if(password.equals("admin") && username.equals("admin")){
-//            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
-//            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("admin", true);
-//            return "index?faces-redirect=true";
-//        }
-
         if (db.correctCredentials(username, password)) {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", username);
             boolean isAdmin = db.isAdmin(username);

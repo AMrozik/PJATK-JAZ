@@ -48,7 +48,7 @@ public class addCategoryController {
         category.setSection(section);
         categoryRepository.save(category);
 
-        return "admin/showCategories.xhtml?faces-redirect=true";
+        return "showCategories.xhtml?faces-redirect=true";
     }
 
     public String add() {
@@ -60,6 +60,6 @@ public class addCategoryController {
             categoryRepository.save(new CategoryEntity(section, name));
         }
 
-        return "admin/showCategories.xhtml?faces-redirect=true";
+        return "showCategories.xhtml?faces-redirect=true";
     }
 }

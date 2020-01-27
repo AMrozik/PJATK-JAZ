@@ -19,11 +19,22 @@
                     <h:link styleClass="list-group-item list-group-item-action" outcome="editCategory">
                         <f:param name="categoryId" value="#{category.id}"/>
 
-                        <h:outputText  value="##{category.id} - #{category.name} - #{category.section.name}"/><br/>
+                        <h:outputText value="##{category.id} - #{category.name} - #{category.section.name}"/><br/>
                     </h:link>
                 </ui:repeat>
             </div>
 
+            <p>
+                <h:link styleClass="admin-options" outcome="addCategory">
+                    <h:outputText value="dodaj kategorie" style="color: darkmagenta"/><br/>
+                </h:link>
+            </p>
+
+            <p>
+                <h:link styleClass="admin-options" outcome="/index.xhtml">
+                    <h:outputText value="Strona Główna" style="color: lime"/><br/>
+                </h:link>
+            </p>
         </ui:define>
     </ui:composition>
 </h:body>

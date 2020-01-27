@@ -14,19 +14,29 @@
     <div id="page">
         <ui:composition template="/template/common/commonLayout.xhtml">
             <ui:define name="content">
-                <h2>
-                    <h:panelGroup rendered="#{not empty user}">
-                        <p>Witaj na Allezon #{user}, zostałeś zalogowany poprawnie!</p>
+                <h:panelGroup rendered="#{not empty user}">
+                    <h2>
+                        Witaj na Allezon #{user}, zostałeś zalogowany poprawnie!
                         <br/><br/><br/><br/>
+                    </h2>
 
+                    <p>
+                        <h:link styleClass="user-options" outcome="showAuctions">
+                            <h:outputText value="lista wszystkich aukcji"/><br/>
+                        </h:link>
 
-                        <p>#{msg.logout}</p>
+                        <h:link styleClass="user-options" outcome="addAuc">
+                            <h:outputText value="dodaj aukcje" style="color: darkmagenta"/><br/>
+                        </h:link>
+                    </p>
+
+                    <h2>
+                        #{msg.logout}
                         <h:form>
                             <h:commandButton value="Logout" action="#{loginControler.logout}"/>
                         </h:form>
-
-                    </h:panelGroup>
-                </h2>
+                    </h2>
+                </h:panelGroup>
 
                 <h:panelGroup rendered="#{not empty isAdmin}">
                     <p>Panel Administratora: </p>
