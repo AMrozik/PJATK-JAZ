@@ -2,7 +2,6 @@ package pl.edu.pjatk.jazapp.register;
 
 import pl.edu.pjatk.jazapp.auth.ProfileRepository;
 import pl.edu.pjatk.jazapp.auth.User;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;

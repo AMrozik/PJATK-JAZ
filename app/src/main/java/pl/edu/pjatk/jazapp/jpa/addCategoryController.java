@@ -3,7 +3,6 @@ package pl.edu.pjatk.jazapp.jpa;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.Optional;
 
 @Named
 @RequestScoped

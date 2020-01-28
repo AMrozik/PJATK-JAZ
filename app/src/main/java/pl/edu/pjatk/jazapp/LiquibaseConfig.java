@@ -6,7 +6,6 @@ import liquibase.integration.cdi.CDILiquibaseConfig;
 import liquibase.integration.cdi.annotations.LiquibaseType;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import liquibase.resource.ResourceAccessor;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.sql.DataSource;

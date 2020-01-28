@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -15,6 +16,114 @@
         <ui:composition template="/template/common/commonLayout.xhtml">
             <ui:define name="content">
                 <!--    TODO:       formularz edycji aukcji przez uzytkownika            -->
+
+
+                <div class="text-center">
+                    <h:outputLabel rendered="#{flash.containsKey('error-message')}"
+                                   styleClass="alert alert-danger" value="#{flash['error-message']}"/>
+                    <h:form styleClass="form-base">
+
+                        Kategoria: <h:selectOneMenu value="#{addAuctionController.addAuctionRequest.categoryId}">
+                        <f:selectItems value="#{categoryController.CategoryList()}"
+                                       var="category"
+                                       itemLabel="#{category.name}"
+                                       itemValue="#{category.id}"/>
+                    </h:selectOneMenu><br/>
+
+                        <div class="form-group">
+                            <p>
+                                <h:inputText id="title" styleClass="form-control" a:placeholder="title"
+                                             value="#{addAuctionController.addAuctionRequest.title}"/><br/>
+                            </p>
+                            <p>
+                                <h:inputText id="description" styleClass="form-control" a:placeholder="description"
+                                             value="#{addAuctionController.addAuctionRequest.description}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="price" styleClass="form-control" a:placeholder="price"
+                                             value="#{addAuctionController.addAuctionRequest.price}"/><br/>
+                            </p>
+
+                            <!--             PARAMETRY               -->
+                            <p>
+                                <h:inputText id="parameter0" styleClass="form-control" a:placeholder="parametr 1"
+                                             value="#{addAuctionController.addAuctionRequest.parameter0}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="parameter0Value" styleClass="form-control"
+                                             a:placeholder="wartość parametru 1"
+                                             value="#{addAuctionController.addAuctionRequest.paramValue0}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="parameter1" styleClass="form-control" a:placeholder="parametr 2"
+                                             value="#{addAuctionController.addAuctionRequest.parameter1}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="parameter1Value" styleClass="form-control"
+                                             a:placeholder="wartość parametru 2"
+                                             value="#{addAuctionController.addAuctionRequest.paramValue1}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="parameter2" styleClass="form-control" a:placeholder="parametr 3"
+                                             value="#{addAuctionController.addAuctionRequest.parameter2}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="parameter2Value" styleClass="form-control"
+                                             a:placeholder="wartość parametru 3"
+                                             value="#{addAuctionController.addAuctionRequest.paramValue2}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="parameter3" styleClass="form-control" a:placeholder="parametr 4"
+                                             value="#{addAuctionController.addAuctionRequest.parameter3}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="parameter3Value" styleClass="form-control"
+                                             a:placeholder="wartość parametru 4"
+                                             value="#{addAuctionController.addAuctionRequest.paramValue3}"/><br/>
+                            </p>
+
+
+                            <!--   ZDJECIA                         -->
+                            <p>
+                                <h:inputText id="photos0" styleClass="form-control" a:placeholder="photo 1"
+                                             required="true"
+                                             requiredMessage="pierwsze zdjęcie jest wymagane"
+                                             value="#{addAuctionController.addAuctionRequest.photo0}"/><br/>
+
+                                <h:message for="photos0" style="color:red"/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="photos1" styleClass="form-control" a:placeholder="photo 2"
+                                             value="#{addAuctionController.addAuctionRequest.photo1}"/><br/>
+                            </p>
+
+
+                            <p>
+                                <h:inputText id="photos2" styleClass="form-control" a:placeholder="photo 3"
+                                             value="#{addAuctionController.addAuctionRequest.photo2}"/><br/>
+                            </p>
+
+                            <p>
+                                <h:inputText id="photos3" styleClass="form-control" a:placeholder="photo 4"
+                                             value="#{addAuctionController.addAuctionRequest.photo3}"/><br/>
+                            </p>
+                        </div>
+
+                        <h:commandButton styleClass="btn btn-primary" value="Save"
+                                         action="#{addAuctionController.add()}"/><br/>
+                    </h:form>
+                </div>
+
+
             </ui:define>
         </ui:composition>
     </div>

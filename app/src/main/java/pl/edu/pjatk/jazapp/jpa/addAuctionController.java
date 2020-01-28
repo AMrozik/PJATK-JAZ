@@ -3,7 +3,6 @@ package pl.edu.pjatk.jazapp.jpa;
 import pl.edu.pjatk.jazapp.auth.ProfileRepository;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;

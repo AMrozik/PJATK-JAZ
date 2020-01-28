@@ -15,24 +15,24 @@
     <div id="page">
         <ui:composition template="/template/common/adminLayout.xhtml">
             <ui:define name="content">
-                <!--    TODO:       formularz edycji kategorii przez administratora            -->
 
                 <div class="text-center">
                     <h:outputLabel rendered="#{flash.containsKey('error-message')}"
                                    styleClass="alert alert-danger" value="#{flash['error-message']}"/>
                     <h:form styleClass="form-base">
                         <div class="form-group">
-                            <h:inputHidden value="#{addCategoryController.editRequest.id}" />
-                            <h:selectOneMenu  value="#{addCategoryController.editRequest.sectionId}">
+                            <h:inputHidden value="#{addCategoryController.editRequest.id}"/>
+                            <h:selectOneMenu value="#{addCategoryController.editRequest.sectionId}">
                                 <f:selectItems value="#{sectionController.sectionList()}"
                                                var="section"
                                                itemLabel="#{section.name}"
-                                               itemValue="#{section.id}" />
+                                               itemValue="#{section.id}"/>
                             </h:selectOneMenu>
                             <h:inputText id="category-name" styleClass="form-control" a:placeholder="name"
                                          value="#{addCategoryController.editRequest.name}"/>
                         </div>
-                        <h:commandButton styleClass="btn btn-primary" value="Save" action="#{addCategoryController.edit()}"/><br/>
+                        <h:commandButton styleClass="btn btn-primary" value="Save"
+                                         action="#{addCategoryController.edit()}"/><br/>
                     </h:form>
                 </div>
 
