@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @ApplicationScoped
 public class ProfileRepository {
@@ -52,5 +53,11 @@ public class ProfileRepository {
         var queryResult = em.createQuery("from ProfileEntity where username = :username", ProfileEntity.class)
                 .setParameter("username", user).getResultList();
         return queryResult.get(0).isAdmin();
+    }
+
+    @Transactional
+    public Optional<ProfileEntity> findUserById(Long id) {
+        var user = em.find(ProfileEntity.class, id);
+        return Optional.ofNullable(user);
     }
 }

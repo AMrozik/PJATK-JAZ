@@ -1,6 +1,7 @@
 package pl.edu.pjatk.jazapp.jpa;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class EditAuctionRequest {
 
@@ -19,10 +20,28 @@ public class EditAuctionRequest {
     private String paramValue1;
     private String paramValue2;
     private String paramValue3;
+    private List<PhotoEntity> photos;
+    private List<AuctionParameterEntity> params;
     private String photo0;
     private String photo1;
     private String photo2;
     private String photo3;
+
+    public List<AuctionParameterEntity> getParams() {
+        return params;
+    }
+
+    public void setParams(List<AuctionParameterEntity> params) {
+        this.params = params;
+    }
+
+    public List<PhotoEntity> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<PhotoEntity> photos) {
+        this.photos = photos;
+    }
 
     public String getParameter0() {
         return parameter0;
@@ -139,8 +158,12 @@ public class EditAuctionRequest {
         this.price = auction.getPrice();
         this.description = auction.getDescription();
         this.owner_id = auction.getOwnerId();
-        this.category = auction.getCategory();
+        this.categoryId = auction.getCategory().getId();
+        this.params = auction.getParameters();
+        this.photos = auction.getPhotos();
     }
+
+
 
     public Long getId() {
         return id;

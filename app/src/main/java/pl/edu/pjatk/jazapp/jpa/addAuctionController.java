@@ -1,5 +1,6 @@
 package pl.edu.pjatk.jazapp.jpa;
 
+import pl.edu.pjatk.jazapp.auth.ProfileEntity;
 import pl.edu.pjatk.jazapp.auth.ProfileRepository;
 
 import javax.enterprise.context.RequestScoped;
@@ -36,10 +37,17 @@ public class addAuctionController {
         return editAuctionRequest;
     }
 
+    public EditAuctionRequest getEditAuctionRequest(){
+        if(editAuctionRequest == null){
+            editAuctionRequest = createEditAuctionRequest();
+        }
+        return editAuctionRequest;
+    }
+
     private EditAuctionRequest createEditAuctionRequest() {
         if(paramRetriever.contains("auctionId")){
             var auctionId = paramRetriever.getLong("auctionId");
-            var auction = auctionRepository.findAuctionById(auctionId).orElseThrow();
+            var auction = auctionRepository.findAuctionById(auctionId);
             return new EditAuctionRequest(auction);
         }
         return new EditAuctionRequest();
@@ -52,7 +60,6 @@ public class addAuctionController {
         String title = editAuctionRequest.getTitle();
         String description = editAuctionRequest.getDescription();
 
-
         List<PhotoEntity> photos = new ArrayList<>();
         photos.add(new PhotoEntity(editAuctionRequest.getPhoto0()));
         photos.add(new PhotoEntity(editAuctionRequest.getPhoto1()));
@@ -61,7 +68,6 @@ public class addAuctionController {
 
         photos.get(0).setOrder_by(0);
 
-
         List<AuctionParameterEntity> parameters = new ArrayList<>();
         parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter0()), editAuctionRequest.getParamValue0()));
         parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter1()), editAuctionRequest.getParamValue1()));
@@ -69,13 +75,9 @@ public class addAuctionController {
         parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter3()), editAuctionRequest.getParamValue3()));
 
         BigDecimal price = editAuctionRequest.getPrice();
-
         HttpSession Session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-
         String owner = (String) Session.getAttribute("user");
-
         Long ownerId = profileRepository.getUserId(owner);
-
         AuctionEntity auction = new AuctionEntity(category, title, description, photos, parameters, price, ownerId);
 
         auctionRepository.save(auction);
@@ -83,8 +85,28 @@ public class addAuctionController {
         return "showAuctions.xhtml?faces-redirect=true";
     }
 
+    public String edit(){
+        Long categoryId = getEditAuctionRequest().getCategoryId();
+        HttpSession Session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        String owner = (String) Session.getAttribute("user");
+        Long ownerId = profileRepository.getUserId(owner);
+        List<PhotoEntity> photos = getEditAuctionRequest().getPhotos();
+        String description = getEditAuctionRequest().getDescription();
+        String title = getEditAuctionRequest().getTitle();
+        BigDecimal price = getEditAuctionRequest().getPrice();
+        CategoryEntity category = categoryRepository.findCategoryById(categoryId).orElseThrow();
+        ProfileEntity profile = profileRepository.findUserById(ownerId).orElseThrow();
+
+        AuctionEntity auction = new AuctionEntity(getEditAuctionRequest().getId(),
+                getEditAuctionRequest().getCategory(), getAddAuctionRequest().getTitle(),
+                getEditAuctionRequest().getDescription(), getEditAuctionRequest().getPhotos(),
+                getEditAuctionRequest().getParams(), getEditAuctionRequest().getPrice(), getEditAuctionRequest().getOwner_id());
+
+        auctionRepository.save(auction);
+
+        return "showUserAuctions.xhtml?faces-redirect=true";
+    }
 
     public addAuctionController() {
     }
-
 }

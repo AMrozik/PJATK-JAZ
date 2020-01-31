@@ -34,3 +34,10 @@ databaseChangeLog:
         relativeToChangelogFile: true
         splitStatements: false
         path: 20200124_hibernate_sequence_fix.sql
+  - changeSet:
+      id: 20200129_order_by_fix
+      author: Andrzej Mrozik
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200129_order_by_fix.sql

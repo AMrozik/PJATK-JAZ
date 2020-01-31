@@ -18,9 +18,9 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public Optional<AuctionEntity> findAuctionById(Long auctionId) {
-        var auction = em.find(AuctionEntity.class, auctionId);
-        return Optional.ofNullable(auction);
+    public AuctionEntity findAuctionById(Long auctionId) {
+        var auction = em.createQuery("select distinct ae from AuctionEntity ae where id = :auctionId", AuctionEntity.class).setParameter("auctionId", auctionId).getSingleResult();
+        return auction;
     }
 
     @Transactional
