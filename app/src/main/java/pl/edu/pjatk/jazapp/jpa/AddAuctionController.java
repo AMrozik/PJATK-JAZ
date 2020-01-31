@@ -14,7 +14,7 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class addAuctionController {
+public class AddAuctionController {
 
     @Inject
     private CategoryRepository categoryRepository;
@@ -62,17 +62,25 @@ public class addAuctionController {
 
         List<PhotoEntity> photos = new ArrayList<>();
         photos.add(new PhotoEntity(editAuctionRequest.getPhoto0()));
-        photos.add(new PhotoEntity(editAuctionRequest.getPhoto1()));
-        photos.add(new PhotoEntity(editAuctionRequest.getPhoto2()));
-        photos.add(new PhotoEntity(editAuctionRequest.getPhoto3()));
+
+        if(!editAuctionRequest.getPhoto1().equals(""))
+            photos.add(new PhotoEntity(editAuctionRequest.getPhoto1()));
+        if(!editAuctionRequest.getPhoto2().equals(""))
+            photos.add(new PhotoEntity(editAuctionRequest.getPhoto2()));
+        if(!editAuctionRequest.getPhoto3().equals(""))
+            photos.add(new PhotoEntity(editAuctionRequest.getPhoto3()));
 
         photos.get(0).setOrder_by(0);
 
         List<AuctionParameterEntity> parameters = new ArrayList<>();
-        parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter0()), editAuctionRequest.getParamValue0()));
-        parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter1()), editAuctionRequest.getParamValue1()));
-        parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter2()), editAuctionRequest.getParamValue2()));
-        parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter3()), editAuctionRequest.getParamValue3()));
+        if(!editAuctionRequest.getParameter0().equals("") || !editAuctionRequest.getParamValue0().equals(""))
+            parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter0()), editAuctionRequest.getParamValue0()));
+        if(!editAuctionRequest.getParameter1().equals("") || !editAuctionRequest.getParamValue1().equals(""))
+            parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter1()), editAuctionRequest.getParamValue1()));
+        if(!editAuctionRequest.getParameter2().equals("") || !editAuctionRequest.getParamValue2().equals(""))
+            parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter2()), editAuctionRequest.getParamValue2()));
+        if(!editAuctionRequest.getParameter3().equals("") || !editAuctionRequest.getParamValue3().equals(""))
+            parameters.add(new AuctionParameterEntity(new ParameterEntity(editAuctionRequest.getParameter3()), editAuctionRequest.getParamValue3()));
 
         BigDecimal price = editAuctionRequest.getPrice();
         HttpSession Session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -107,6 +115,6 @@ public class addAuctionController {
         return "showUserAuctions.xhtml?faces-redirect=true";
     }
 
-    public addAuctionController() {
+    public AddAuctionController() {
     }
 }

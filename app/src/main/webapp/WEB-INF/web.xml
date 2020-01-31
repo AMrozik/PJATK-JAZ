@@ -19,7 +19,7 @@
     </context-param>
 
     <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>welcomeScreen.xhtml</welcome-file>
     </welcome-file-list>
 
     <servlet>

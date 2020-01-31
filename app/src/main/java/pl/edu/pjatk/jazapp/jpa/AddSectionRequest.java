@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class addSectionRequest {
+public class AddSectionRequest {
     private String name;
 
     public String getName() {

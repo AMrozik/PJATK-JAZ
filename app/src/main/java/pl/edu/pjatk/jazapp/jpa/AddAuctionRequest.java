@@ -7,7 +7,7 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class addAuctionRequest {
+public class AddAuctionRequest {
 
     private CategoryEntity category;
     private String title;
@@ -73,7 +73,7 @@ public class addAuctionRequest {
         this.ownerId = ownerId;
     }
 
-    public addAuctionRequest(CategoryEntity category, String title, String description, List<PhotoEntity> photos, List<AuctionParameterEntity> parameters, BigDecimal price, Long ownerId) {
+    public AddAuctionRequest(CategoryEntity category, String title, String description, List<PhotoEntity> photos, List<AuctionParameterEntity> parameters, BigDecimal price, Long ownerId) {
         this.category = category;
         this.title = title;
         this.description = description;
@@ -83,6 +83,6 @@ public class addAuctionRequest {
         this.ownerId = ownerId;
     }
 
-    public addAuctionRequest() {
+    public AddAuctionRequest() {
     }
 }

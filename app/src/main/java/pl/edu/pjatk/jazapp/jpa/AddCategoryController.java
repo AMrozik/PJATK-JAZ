@@ -6,7 +6,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class addCategoryController {
+public class AddCategoryController {
     @Inject
     private SectionRepository sectionRepository;
 
